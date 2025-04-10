@@ -244,6 +244,12 @@ const app = createApp({
                 const response = await this.makeRequest(`${this.apiBaseUrl}/spots`);
                 this.experiences = response.data || [];
                 console.log('Fetched spots:', this.experiences.length);
+                
+                // Ensure all images have the correct URL
+                this.experiences = this.experiences.map(spot => ({
+                    ...spot,
+                    image: spot.image || `${this.apiBaseUrl}/images/default.jpg`
+                }));
             } catch (error) {
                 console.error('Error in fetchSpots:', error);
                 this.error = 'Failed to load spots. Please try again later.';
