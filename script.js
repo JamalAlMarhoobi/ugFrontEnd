@@ -59,7 +59,7 @@ const app = createApp({
             searchQuery: "",
             showItinerary: false,
             experiences: [],
-            apiBaseUrl: 'http://localhost:3000/api',
+            apiBaseUrl: 'https://smart-tourism-jgps.onrender.com/api',
             sortBy: '',
             sortOrder: 'asc', // 'asc' or 'desc'
             showAllCities: true,
