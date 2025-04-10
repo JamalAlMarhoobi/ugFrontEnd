@@ -439,7 +439,7 @@ const app = createApp({
             this.isLoading = true;
 
             // Send login request to server
-            fetch('/api/login', {
+            fetch(`${this.apiBaseUrl}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -532,7 +532,7 @@ const app = createApp({
             });
 
             // Send registration request to server
-            fetch('/api/register', {
+            fetch(`${this.apiBaseUrl}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
