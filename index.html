@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!-- Define the document type and language -->
+<html lang="en">
+
+<head>
+    <!-- Character encoding for the document -->
+    <meta charset="UTF-8">
+    <!-- Viewport settings for responsive design -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title displayed in browser tab -->
+    <title>Smart Tourism Planner</title>
+    <!-- Link to Vue.js framework for building the application -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Link to custom CSS styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Main Vue.js application container -->
+    <div id="app">
+        <!-- Authentication Pages -->
+        <div v-if="!isAuthenticated">
+            <!-- Auth Header -->
+            <header>
+                <h1>Smart Tourism Planner</h1>
+                <div class="header-right">
+                    <button v-if="currentPage === 'signup'" class="auth-button" @click="currentPage = 'login'">
+                        Login
+                    </button>
+                    <button v-else class="auth-button" @click="currentPage = 'signup'">
+                        Sign Up
+                    </button>
+                </div>
+            </header>
+
+            <!-- Login Page -->
+            <div v-if="currentPage === 'login'" class="auth-container">
+                <div class="form-section" style="max-width: 600px; margin: 0 auto;">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p class="preferences-link">Login to continue your journey</p>
+                    </div>
+                    <form @submit.prevent="handleLogin">
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <input type="email" id="login-email" v-model="loginForm.email"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                title="Please enter a valid email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" v-model="loginForm.password"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                                title="Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character"
+                                required>
+                        </div>
+                        <div class="error-message" v-if="loginError" :class="{ show: loginError }">
+                            {{ loginError }}
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" class="auth-button">Login</button>
+                            <a href="#" class="login-link" @click.prevent="currentPage = 'signup'">
+                                Don't have an account? Sign up here
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Signup Page -->
+            <div v-if="currentPage === 'signup'" class="auth-container">
+                <div class="signup-container">
+                    <!-- Form Section -->
+                    <div class="form-section">
+                        <div class="form-header">
+                            <h2>Create Account</h2>
+                            <p class="preferences-link"></p>
+                        </div>
+                        <form @submit.prevent="handleSignup">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" v-model="signupForm.fullName" required minlength="2"
+                                    title="Please enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" v-model="signupForm.email"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                    title="Please enter a valid email address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" v-model="signupForm.password"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                                    title="Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" id="confirm-password" v-model="signupForm.confirmPassword"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                                    title="Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="destinationCity">Destination City</label>
+                                <select id="destinationCity" v-model="signupForm.destinationCity" required
+                                    title="Please select your destination city">
+                                    <option value="" disabled selected>Select your destination city</option>
+                                    <option v-for="city in cities" :key="city" :value="city">
+                                        {{ city }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="error-message" v-if="signupError" :class="{ show: signupError }"
+                                style="display: block;">
+                                {{ signupError }}
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Categories Section -->
+                    <div class="categories-section">
+                        <div class="form-header">
+                            <h2>Select Your Interests</h2>
+                            <p class="preferences-link">{{ selectedCategories.length }} selected</p>
+                        </div>
+                        <div class="categories-grid">
+                            <div v-for="category in preferences" :key="category" class="category-item">
+                                <input type="checkbox" :id="category" :value="category" v-model="selectedCategories">
+                                <label :for="category">{{ category }}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button class="auth-button" @click="handleSignup">Create Account</button>
+                    <a href="#" class="login-link" @click.prevent="currentPage = 'login'">
+                        Already have an account? Login here
+                    </a>
+                </div>
+            </div>
+
+            <div v-if="isLoading" class="loading-spinner"></div>
+        </div>
+
+        <!-- Main Application -->
+        <div v-else class="main-app">
+            <header>
+                <div class="logo">Smart Tourism Planner</div>
+                <nav class="nav-links">
+                    <a href="#" @click.prevent="currentView = 'preferences'"
+                        :class="{ active: currentView === 'preferences' }">My Preferences</a>
+                    <a href="#" @click.prevent="currentView = 'browse-all'"
+                        :class="{ active: currentView === 'browse-all' }">Browse All</a>
+                    <a href="#" @click.prevent="currentView = 'browse-recommended'"
+                        :class="{ active: currentView === 'browse-recommended' }">Browse Recommended</a>
+                </nav>
+                <div class="header-right">
+                    <div class="search-container">
+                        <input type="text" placeholder="Search" v-model="searchQuery" class="search-input">
+                        <button class="search-button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="my-itinerary-btn" @click="showItinerary = true">
+                        My Itinerary
+                        <span v-if="itinerary.length > 0" class="itinerary-count">{{ itinerary.length }}</span>
+                    </button>
+                    <button class="logout-btn" @click="handleLogout">
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Price Note -->
+            <div class="price-note">
+                <i class="fas fa-info-circle"></i>
+                <span>Note: All prices are the starting entry fees for international adults.</span>
+            </div>
+
+            <!-- Destination City Filter -->
+            <div v-if="isAuthenticated" class="destination-filter">
+                <label class="filter-label">Show spots:</label>
+                <div class="toggle-container">
+                    <button class="toggle-btn" :class="{ active: showAllCities }" @click="showAllCities = true">
+                        All Cities
+                    </button>
+                    <button class="toggle-btn" :class="{ active: !showAllCities }" @click="showAllCities = false">
+                        My City Only
+                    </button>
+                </div>
+            </div>
+        
+            <main>
+                <!-- Preferences View -->
+                <div v-if="currentView === 'preferences'" class="preferences-view">
+                    <div class="preferences-container">
+                        <div class="preferences-header">
+                            <h2>My Interests</h2>
+                            <p class="preferences-count">{{ userCategories.length }} categories selected</p>
+                        </div>
+                        <div class="categories-grid">
+                            <div v-for="category in preferences" :key="category" class="category-item"
+                                :class="{ 'selected': userCategories.includes(category) }">
+                                <input type="checkbox" :id="'pref-' + category" :value="category"
+                                    v-model="userCategories" @change="handlePreferencesChange">
+                                <label :for="'pref-' + category">{{ category }}</label>
+                            </div>
+                        </div>
+                        <div class="preferences-actions">
+                            <button class="save-preferences" @click="savePreferences" v-if="preferencesChanged">
+                                Save Changes
+                            </button>
+                            <div class="preferences-message" v-if="error"
+                                :class="{ 'error': error.includes('Failed'), 'success': !error.includes('Failed') }">
+                                {{ error }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Section (Browse All and Recommended) -->
+                <div v-else class="experience-section">
+                    <div v-for="experience in filteredExperiences" :key="experience.spotId" class="experience-item">
+                    <figure class="experience-image-wrapper">
+                        <img v-bind:src="experience.image" class="experience-image" alt="Experience image">
+                    </figure>
+                        <div class="experience-content">
+                    <h2 v-text="experience.title"></h2>
+
+                            <div class="experience-categories">
+                                <span v-for="category in experience.category" :key="category" class="category-tag">
+                                    {{ category }}
+                                </span>
+                            </div>
+
+                            <p class="experience-description" v-text="experience.description"></p>
+
+                            <div class="experience-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>{{ experience.location.city }}</span>
+                                    <a :href="experience.location.googleMapsLink" target="_blank" class="map-link">
+                                        <i class="fas fa-external-link-alt"></i> View on Map
+                                    </a>
+                                </div>
+
+                                <div class="detail-item">
+                                    <i class="fas fa-tag"></i>
+                                    <span>{{ experience.price ? 'AED ' + experience.price : 'Free' }}</span>
+                                </div>
+
+                                <div class="detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Google Reviews: {{ experience.googleReviews.rating }}({{
+                                        experience.googleReviews.reviewCount }} reviews)</span>
+                                </div>
+
+                                <div class="detail-item" v-if="experience.website">
+                                    <i class="fas fa-globe"></i>
+                                    <a :href="experience.website" target="_blank" class="website-link">
+                                        Visit their website
+                                    </a>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <a href="#" class="website-link" @click.prevent="showReviews(experience)">
+                                        View internal reviews
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="spot-actions">
+                                <button class="add-to-itinerary-btn" @click="toggleItinerary(experience)"
+                                    :class="{ 'added': isInItinerary(experience) }">
+                                    <i :class="isInItinerary(experience) ? 'fas fa-check' : 'fas fa-plus'"></i>
+                                    {{ isInItinerary(experience) ? 'Added' : 'Add to Itinerary' }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Itinerary Section -->
+                <div v-if="showItinerary" class="itinerary-planner">
+                    <header>
+                        <div class="logo">Smart Tourism Planner</div>
+                        <nav class="nav-links">
+                            <a href="#" @click.prevent="currentView = 'preferences'"
+                                :class="{ active: currentView === 'preferences' }">My Preferences</a>
+                            <a href="#" @click.prevent="currentView = 'browse-all'"
+                                :class="{ active: currentView === 'browse-all' }">Browse All</a>
+                            <a href="#" @click.prevent="currentView = 'browse-recommended'"
+                                :class="{ active: currentView === 'browse-recommended' }">Browse Recommended</a>
+                        </nav>
+                        <div class="header-right">
+                            <div class="search-container">
+                                <input type="text" placeholder="Search" v-model="searchQuery" class="search-input">
+                                <button class="search-button"><i class="fas fa-search"></i></button>
+                            </div>
+                            <button class="my-itinerary-btn" @click="showItinerary = false">
+                                Close Itinerary
+                            </button>
+                            <button class="logout-btn" @click="handleLogout">
+                                Logout
+                            </button>
+                        </div>
+                    </header>
+
+                    <!-- Price Note -->
+                    <div class="price-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Note: All prices are the starting entry fees for international adults.</span>
+                    </div>
+
+                    <div class="itinerary-content">
+                        <div v-if="itinerary.length === 0" class="empty-itinerary">
+                            <i class="fas fa-calendar-plus"></i>
+                            <p>Your itinerary is empty</p>
+                            <p>Add spots from the main page to start planning your trip!</p>
+                        </div>
+
+                        <div v-else class="itinerary-spots">
+                            <div v-for="(item, index) in itinerary" :key="item.spotId" class="itinerary-spot"
+                                draggable="true" @dragstart="dragStart(index)" @dragover.prevent @drop="drop(index)">
+                                <div class="spot-number">{{ index + 1 }}</div>
+                                <div class="spot-content">
+                                    <div class="spot-header">
+                                        <h3>{{ item.title }}</h3>
+                                        <button class="remove-spot" @click="removeFromItinerary(index)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button v-if="item.status === 'booked'" class="review-spot"
+                                            @click="showReviewModal(item)">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+                                    </div>
+                                    <div class="spot-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>{{ item.location.city }}</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-tag"></i>
+                                            <span>{{ item.price ? 'AED ' + item.price : 'Free' }}</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-star"></i>
+                                            <span>{{ item.googleReviews.rating }} ({{ item.googleReviews.reviewCount }}
+                                                reviews)</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar"></i>
+                                            <span>Date: {{ item.date }}</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>Status: {{ item.status }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="spot-categories">
+                                        <span v-for="category in item.category" :key="category" class="category-tag">
+                                            {{ category }}
+                                        </span>
+                                    </div>
+                                    <div class="spot-actions">
+                                        <button class="booking-btn" @click="handleBooking(item)"
+                                            :class="{ 'booked': item.status === 'booked' }">
+                                            {{ item.status === 'booked' ? 'Visit their website' : 'Make Booking' }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="itinerary.length > 0" class="itinerary-total">
+                            <div class="total-label">Grand Total:</div>
+                            <div class="total-amount">AED {{ itinerary.reduce((sum, spot) => sum + (spot.price || 0), 0)
+                                }}</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Review Modal -->
+        <div v-if="showReviewPopup" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Leave a Review</h3>
+                    <button class="close-modal" @click="closeReviewModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div v-if="!showReviewForm" class="review-choice">
+                        <p>Would you like to review this attraction?</p>
+                        <div class="choice-buttons">
+                            <button @click="proceedToReview">Yes</button>
+                            <button @click="skipReview">No</button>
+                        </div>
+                    </div>
+                    <div v-else class="review-form">
+                        <div class="rating-input">
+                            <label>Rating:</label>
+                            <div class="star-rating">
+                                <i v-for="star in 5" :key="star" class="fas fa-star"
+                                    :class="{ 'active': star <= reviewForm.rating }"
+                                    @click="reviewForm.rating = star"></i>
+                            </div>
+                        </div>
+                        <div class="comment-input">
+                            <label>Comment:</label>
+                            <textarea v-model="reviewForm.comment" placeholder="Share your experience..."></textarea>
+                        </div>
+                        <button class="submit-review" @click="submitReview">Submit Review</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+        <!-- Reviews Modal -->
+        <div v-if="showReviewsModal" class="reviews-modal">
+            <div class="reviews-content">
+                <div class="reviews-header">
+                    <h2>Reviews for {{ currentReviewsSpot.title }}</h2>
+                    <button @click="closeReviewsModal" class="close-btn">&times;</button>
+                </div>
+                <div class="reviews-sort">
+                    <select v-model="reviewsSortBy" @change="sortReviews">
+                        <option value="date">Sort by Date</option>
+                        <option value="rating">Sort by Rating</option>
+                    </select>
+                    <button @click="toggleReviewsSortOrder" class="sort-order-btn">
+                        <i
+                            :class="reviewsSortOrder === 'asc' ? 'fas fa-sort-amount-up' : 'fas fa-sort-amount-down'"></i>
+                    </button>
+                </div>
+                <div v-if="spotReviews.length === 0" class="no-reviews">
+                    No reviews yet for this attraction.
+                </div>
+                <div v-else class="reviews-list">
+                    <div v-for="review in sortedReviews" :key="review._id" class="review-item">
+                        <div class="review-header">
+                            <div class="review-rating">
+                                <span v-for="n in 5" :key="n">
+                                    <i :class="n <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+                                </span>
+                            </div>
+                            <div class="review-date">{{ review.createdAt }}</div>
+                        </div>
+                        <div class="review-comment">{{ review.comment }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1779 @@
+/* Reset all default browser styles */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Base styles for the entire document */
+body {
+    font-family: Arial, sans-serif; /* Set default font family */
+    line-height: 1.6; /* Set line height for better readability */
+    background-color: #f4f4f4; /* Set light gray background color */
+    min-height: 100vh; /* Ensure body takes up at least full viewport height */
+}
+
+/* Container for the logo */
+.logo-container {
+    padding: 20px; /* Add padding around the logo */
+    text-align: center; /* Center the logo horizontally */
+    margin-bottom: 30px; /* Add space below the logo */
+}
+
+/* Logo styling */
+.logo {
+    background: white; /* White background for the logo */
+    padding: 15px 30px; /* Add padding inside the logo */
+    display: inline-block; /* Allow padding and margin to work properly */
+    border-radius: 5px; /* Round the corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Container for the signup form and categories */
+.signup-container {
+    max-width: 1200px; /* Limit maximum width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding inside the container */
+    display: flex; /* Use flexbox for layout */
+    gap: 40px; /* Add space between flex items */
+}
+
+/* Styling for the form section */
+.form-section {
+    flex: 1; /* Allow form section to grow and take available space */
+    background: white; /* White background */
+    padding: 30px; /* Add padding inside the form section */
+    border-radius: 8px; /* Round the corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Header section of the form */
+.form-header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 30px; /* Add space below the header */
+}
+
+/* Form header title */
+.form-header h2 {
+    font-size: 24px; /* Set font size */
+    color: #333; /* Set text color */
+}
+
+/* Link to preferences section */
+.preferences-link {
+    color: #007bff; /* Set link color to blue */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Set font size */
+}
+
+/* Container for form input groups */
+.form-group {
+    margin-bottom: 20px; /* Add space between form groups */
+}
+
+/* Label styling for form inputs */
+.form-group label {
+    display: block; /* Make label take full width */
+    margin-bottom: 8px; /* Add space below label */
+    color: #333; /* Set text color */
+    font-weight: 500; /* Set font weight */
+}
+
+/* Input field styling */
+.form-group input {
+    width: 100%; /* Make input take full width */
+    padding: 12px; /* Add padding inside input */
+    border: 1px solid #ddd; /* Add light gray border */
+    border-radius: 4px; /* Round the corners */
+    font-size: 16px; /* Set font size */
+}
+
+/* Input field focus state */
+.form-group input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1); /* Add subtle glow effect */
+}
+
+/* Container for categories selection */
+.categories-section {
+    flex: 1; /* Allow categories section to grow and take available space */
+    background: white; /* White background */
+    padding: 30px; /* Add padding inside the section */
+    border-radius: 8px; /* Round the corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Grid layout for categories */
+.categories-grid {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(2, 1fr); /* Create two equal columns */
+    gap: 15px; /* Add space between grid items */
+    max-height: 400px; /* Limit maximum height */
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+    padding-right: 10px; /* Add padding on the right for scrollbar */
+}
+
+/* Individual category item styling */
+.category-item {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Add space between items */
+    padding: 8px; /* Add padding inside the item */
+    background: #f8f9fa; /* Light gray background */
+    border-radius: 4px; /* Round the corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.2s; /* Smooth background color transition */
+}
+
+/* Category item hover state */
+.category-item:hover {
+    background: #e9ecef; /* Change background color on hover */
+}
+
+/* Checkbox styling within category items */
+.category-item input[type="checkbox"] {
+    width: 18px; /* Set checkbox width */
+    height: 18px; /* Set checkbox height */
+    cursor: pointer; /* Show pointer cursor */
+}
+
+/* Label styling within category items */
+.category-item label {
+    font-size: 14px; /* Set font size */
+    color: #333; /* Set text color */
+    cursor: pointer; /* Show pointer cursor */
+}
+
+/* Container for buttons */
+.button-container {
+    text-align: center; /* Center buttons horizontally */
+    margin-top: 30px; /* Add space above the buttons */
+}
+
+/* Create account button styling */
+.create-account-btn {
+    background: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 12px 30px; /* Add padding */
+    border-radius: 4px; /* Round the corners */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Show pointer cursor */
+    transition: background-color 0.2s; /* Smooth background color transition */
+}
+
+/* Create account button hover state */
+.create-account-btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Login link styling */
+.login-link {
+    display: block; /* Make link take full width */
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Add space above the link */
+    color: #007bff; /* Blue text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Set font size */
+}
+
+/* Login link hover state */
+.login-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+    width: 40px; /* Set spinner width */
+    height: 40px; /* Set spinner height */
+    border: 4px solid #f3f3f3; /* Light gray border */
+    border-top: 4px solid #007bff; /* Blue top border */
+    border-radius: 50%; /* Make it circular */
+    animation: spin 1s linear infinite; /* Apply spinning animation */
+    margin: 20px auto; /* Center the spinner */
+}
+
+/* Spinning animation keyframes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Start at 0 degrees */
+    }
+
+    100% {
+        transform: rotate(360deg); /* End at 360 degrees */
+    }
+}
+
+/* Custom scrollbar styling for categories grid */
+.categories-grid::-webkit-scrollbar {
+    width: 8px; /* Set scrollbar width */
+}
+
+/* Scrollbar track styling */
+.categories-grid::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light gray track */
+    border-radius: 4px; /* Round the corners */
+}
+
+/* Scrollbar thumb styling */
+.categories-grid::-webkit-scrollbar-thumb {
+    background: #888; /* Gray thumb */
+    border-radius: 4px; /* Round the corners */
+}
+
+/* Scrollbar thumb hover state */
+.categories-grid::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker gray on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .categories-grid {
+        max-height: 300px; /* Reduce maximum height on small screens */
+    }
+}
+
+/* Authentication container styling */
+.auth-container {
+    max-width: 400px; /* Limit maximum width */
+    margin: 100px auto; /* Center vertically and horizontally */
+    padding: 20px; /* Add padding */
+    background: white; /* White background */
+    border-radius: 8px; /* Round the corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Authentication tabs container */
+.auth-tabs {
+    display: flex; /* Use flexbox for layout */
+    margin-bottom: 20px; /* Add space below tabs */
+    border-bottom: 2px solid #eee; /* Add bottom border */
+}
+
+/* Individual authentication tab */
+.auth-tab {
+    flex: 1; /* Allow tabs to grow and take equal space */
+    padding: 10px; /* Add padding */
+    text-align: center; /* Center text */
+    cursor: pointer; /* Show pointer cursor */
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    font-size: 16px; /* Set font size */
+    color: #666; /* Set text color */
+}
+
+/* Active authentication tab */
+.auth-tab.active {
+    color: #007bff; /* Blue text color for active tab */
+}
+
+/* Authentication button styling */
+.auth-button {
+    background: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 12px 30px; /* Add padding */
+    border-radius: 4px; /* Round the corners */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Show pointer cursor */
+    transition: background-color 0.2s; /* Smooth background color transition */
+    width: 100%; /* Take full width */
+    margin-top: 20px; /* Add space above button */
+}
+
+/* Authentication button hover state */
+.auth-button:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545; /* Red text color */
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Red border */
+    padding: 10px; /* Add padding */
+    border-radius: 4px; /* Round the corners */
+    margin-bottom: 15px; /* Add space below message */
+    text-align: center; /* Center text */
+}
+
+/* Header styling */
+header {
+    background: white; /* White background */
+    padding: 15px 30px; /* Add padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+/* Logo styling in header */
+.logo {
+    font-size: 24px; /* Set font size */
+    font-weight: bold; /* Make text bold */
+    color: #333; /* Set text color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex; /* Use flexbox for layout */
+    gap: 20px; /* Add space between links */
+}
+
+/* Individual navigation link */
+.nav-links a {
+    color: #666; /* Gray text color */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Add padding */
+    border-radius: 4px; /* Round the corners */
+    transition: color 0.2s; /* Smooth color transition */
+}
+
+/* Navigation link hover state */
+.nav-links a:hover {
+    color: #007bff; /* Blue text on hover */
+}
+
+/* Right section of header */
+.header-right {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Add space between items */
+}
+
+/* Search container styling */
+.search-container {
+    position: relative; /* For positioning search button */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Add space between items */
+}
+
+/* Search input styling */
+.search-input {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: none;
+    min-width: 200px;
+    background-color: #f5f5f5; /* Light grey background */
+}
+
+/* Search input focus state */
+.search-input:focus {
+    outline: none; /* Remove default outline */
+    border-color: #007bff; /* Blue border on focus */
+}
+
+/* Search button styling */
+.search-button {
+    background: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 8px 15px; /* Add padding */
+    border-radius: 4px; /* Round the corners */
+    cursor: pointer; /* Show pointer cursor */
+    transition: background-color 0.2s; /* Smooth background color transition */
+}
+
+/* My Itinerary button styling */
+.my-itinerary-btn {
+    background: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 8px 15px; /* Add padding */
+    border-radius: 4px; /* Round the corners */
+    cursor: pointer; /* Show pointer cursor */
+    transition: background-color 0.2s; /* Smooth background color transition */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    gap: 5px; /* Add space between icon and text */
+    position: relative; /* For positioning count badge */
+}
+
+/* My Itinerary button hover state */
+.my-itinerary-btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Itinerary count badge */
+.itinerary-count {
+    position: absolute; /* Position relative to button */
+    top: -8px; /* Move up */
+    right: -8px; /* Move right */
+    background: #dc3545; /* Red background */
+    color: white; /* White text */
+    width: 20px; /* Set width */
+    height: 20px; /* Set height */
+    border-radius: 50%; /* Make circular */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    font-size: 12px; /* Set font size */
+    font-weight: bold; /* Make text bold */
+    animation: popIn 0.3s ease; /* Add pop-in animation */
+}
+
+/* Pop-in animation for count badge */
+@keyframes popIn {
+    0% {
+        transform: scale(0); /* Start scaled down */
+        opacity: 0; /* Start transparent */
+    }
+    100% {
+        transform: scale(1); /* End at full size */
+        opacity: 1; /* End fully visible */
+    }
+}
+
+/* Logout button styling */
+.logout-btn {
+    background: #dc3545; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 8px 15px; /* Add padding */
+    border-radius: 4px; /* Round the corners */
+    cursor: pointer; /* Show pointer cursor */
+    transition: background-color 0.2s; /* Smooth background color transition */
+}
+
+/* Logout button hover state */
+.logout-btn:hover {
+    background: #c82333; /* Darker red on hover */
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.experience-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.experience-image-wrapper {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.experience-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.experience-item:hover .experience-image {
+    transform: scale(1.05);
+}
+
+/* Main content area */
+.experience-content {
+    padding: 1.5rem; /* Add padding inside content */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 1rem; /* Add space between items */
+    flex: 1; /* Allow content to grow */
+}
+
+/* Experience title */
+.experience-content h2 {
+    font-size: 1.2rem; /* Set font size */
+    color: #333; /* Dark gray text */
+    margin: 0; /* Remove margin */
+    line-height: 1.4; /* Set line height for readability */
+}
+
+/* Categories container */
+.experience-categories {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow tags to wrap */
+    gap: 0.5rem; /* Add space between tags */
+}
+
+/* Individual category tag */
+.category-tag {
+    background: #e3f2fd; /* Light blue background */
+    color: #1976d2; /* Blue text */
+    padding: 0.25rem 0.75rem; /* Add padding */
+    border-radius: 1rem; /* Round the corners */
+    font-size: 0.8rem; /* Set font size */
+    font-weight: 500; /* Set font weight */
+}
+
+/* Experience description */
+.experience-description {
+    margin: 15px 0; /* Add vertical margin */
+    color: #666; /* Gray text */
+    line-height: 1.6; /* Set line height for readability */
+    display: -webkit-box; /* Enable line clamping */
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    line-clamp: 3; /* Standard line clamp */
+    -webkit-box-orient: vertical; /* Set text direction */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis for overflow */
+}
+
+/* Details container */
+.experience-details {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 0.75rem; /* Add space between items */
+    margin-top: auto; /* Push to bottom of container */
+}
+
+/* Individual detail item */
+.detail-item {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    gap: 0.5rem; /* Add space between icon and text */
+    color: #555; /* Gray text */
+    font-size: 0.9rem; /* Set font size */
+}
+
+/* Icon in detail item */
+.detail-item i {
+    color: #17a2b8; /* Teal color for icons */
+    width: 1rem; /* Set icon width */
+}
+
+/* Map and website links */
+.map-link,
+.website-link {
+    color: #17a2b8; /* Teal color for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 0.9rem; /* Set font size */
+    margin-left: 0.5rem; /* Add space on left */
+}
+
+/* Link hover states */
+.map-link:hover,
+.website-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Add to itinerary button */
+.add-to-itinerary-btn {
+    width: 100%; /* Take full width */
+    padding: 12px; /* Add padding */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round corners */
+    cursor: pointer; /* Show pointer cursor */
+    font-size: 16px; /* Set font size */
+    font-weight: 600; /* Make text bold */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    gap: 8px; /* Add space between icon and text */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    margin-top: 16px; /* Add space above button */
+}
+
+/* Add to itinerary button hover state */
+.add-to-itinerary-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Added state of itinerary button */
+.add-to-itinerary-btn.added {
+    background-color: #2196F3; /* Blue background when added */
+}
+
+/* Added state hover */
+.add-to-itinerary-btn.added:hover {
+    background-color: #1976D2; /* Darker blue on hover */
+}
+
+/* Button icon */
+.add-to-itinerary-btn i {
+    font-size: 14px; /* Set icon size */
+}
+
+/* Itinerary sidebar */
+.itinerary-section {
+    position: fixed; /* Fix position on screen */
+    top: 0; /* Align to top */
+    right: 0; /* Align to right */
+    height: 100vh; /* Full viewport height */
+    width: 300px; /* Set width */
+    background: white; /* White background */
+    padding: 2rem; /* Add padding */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Add shadow on left side */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Itinerary section title */
+.itinerary-section h2 {
+    margin-bottom: 1rem; /* Add space below title */
+}
+
+/* Itinerary list */
+.itinerary-section ul {
+    list-style: none; /* Remove list bullets */
+    padding: 0; /* Remove padding */
+}
+
+/* Itinerary list item */
+.itinerary-section li {
+    padding: 0.8rem; /* Add padding */
+    border-bottom: 1px solid #eee; /* Add bottom border */
+}
+
+/* Close itinerary button */
+.close-itinerary {
+    position: absolute; /* Position relative to section */
+    bottom: 2rem; /* Distance from bottom */
+    left: 2rem; /* Distance from left */
+    right: 2rem; /* Distance from right */
+    background: #dc3545; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 0.8rem; /* Add padding */
+    border-radius: 4px; /* Round corners */
+    cursor: pointer; /* Show pointer cursor */
+}
+
+/* Footer styling */
+footer {
+    background-color: #232f3e; /* Dark blue background */
+    color: #fff; /* White text */
+    text-align: center; /* Center text */
+    padding: 1rem; /* Add padding */
+    margin-top: 2rem; /* Add space above footer */
+}
+
+/* Authentication page header */
+.auth-header {
+    background: #333; /* Dark background */
+    color: white; /* White text */
+    padding: 1rem; /* Add padding */
+    margin-bottom: 2rem; /* Add space below header */
+}
+
+/* Authentication header title */
+.auth-header h1 {
+    text-align: center; /* Center text */
+    font-size: 24px; /* Set font size */
+}
+
+/* Authentication container */
+.auth-container {
+    max-width: 1200px; /* Limit maximum width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px; /* Add padding */
+}
+
+/* Form section styling */
+.form-section {
+    background: white; /* White background */
+    padding: 2rem; /* Add padding */
+    border-radius: 8px; /* Round corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    margin-bottom: 2rem; /* Add space below section */
+}
+
+/* Form header container */
+.form-header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 2rem; /* Add space below header */
+    padding-bottom: 1rem; /* Add padding at bottom */
+    border-bottom: 1px solid #eee; /* Add bottom border */
+}
+
+/* Form header title */
+.form-header h2 {
+    font-size: 24px; /* Set font size */
+    color: #333; /* Dark gray text */
+}
+
+/* Preferences link */
+.preferences-link {
+    color: #17a2b8; /* Teal color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Set font size */
+}
+
+/* Form group container */
+.form-group {
+    margin-bottom: 1.5rem; /* Add space below group */
+}
+
+/* Form label */
+.form-group label {
+    display: block; /* Take full width */
+    margin-bottom: 0.5rem; /* Add space below label */
+    color: #333; /* Dark gray text */
+    font-weight: 500; /* Set font weight */
+}
+
+/* Form input */
+.form-group input {
+    width: 100%; /* Take full width */
+    padding: 0.8rem; /* Add padding */
+    border: 1px solid #ddd; /* Add light gray border */
+    border-radius: 4px; /* Round corners */
+    font-size: 16px; /* Set font size */
+}
+
+/* Form input focus state */
+.form-group input:focus {
+    border-color: #17a2b8; /* Teal border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.1); /* Add subtle glow */
+}
+
+/* Categories section */
+.categories-section {
+    background: white; /* White background */
+    padding: 2rem; /* Add padding */
+    border-radius: 8px; /* Round corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Categories grid layout */
+.categories-grid {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 1rem; /* Add space between items */
+    max-height: 400px; /* Limit maximum height */
+    overflow-y: auto; /* Add vertical scroll */
+    padding-right: 1rem; /* Add padding for scrollbar */
+}
+
+/* Buttons */
+.button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.auth-button,
+.create-account-btn {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.auth-button:hover,
+.create-account-btn:hover {
+    background: #138496;
+}
+
+.login-link {
+    display: block;
+    margin-top: 1rem;
+    color: #17a2b8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Error Message */
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: #f8d7da;
+    border-radius: 4px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #17a2b8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Main App Styles */
+.search-input {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: none;
+    min-width: 200px;
+    background-color: #f5f5f5; /* Light grey background */
+}
+
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f4f4f4;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.sort-dropdown {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    color: #333;
+    font-size: 0.9rem;
+    cursor: pointer;
+    min-width: 150px;
+    outline: none;
+}
+
+.sort-dropdown option {
+    background: white;
+    color: #333;
+    padding: 0.5rem;
+}
+
+.sort-order-btn {
+    background: none;
+    border: none;
+    color: #17a2b8;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sort-order-btn:hover {
+    background: rgba(23, 162, 184, 0.1);
+}
+
+.sort-order-btn i {
+    font-size: 1rem;
+}
+
+/* Responsive adjustments for sort controls */
+@media (max-width: 768px) {
+    .sort-container {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .sort-dropdown {
+        min-width: 120px;
+        font-size: 0.8rem;
+    }
+
+    .sort-order-btn {
+        padding: 0.25rem;
+    }
+}
+
+.experience-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.experience-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.experience-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rating {
+    color: #ffd700;
+    margin: 1rem 0;
+}
+
+.view-itinerary {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-itinerary:hover {
+    background: #138496;
+}
+
+.logout-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+    background: #c82333;
+}
+
+.itinerary-section {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    background: white;
+    padding: 2rem;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.close-itinerary {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1600px) {
+    .experience-section {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .experience-section {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .experience-content {
+        padding: 1.25rem;
+    }
+
+    .experience-description {
+        -webkit-line-clamp: 2;
+    }
+}
+
+@media (max-width: 900px) {
+    .experience-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .experience-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-content {
+        padding: 1rem;
+    }
+
+    .experience-categories {
+        gap: 0.25rem;
+    }
+
+    .category-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+/* Navigation Active State */
+.nav-links a.active {
+    color: #17a2b8;
+    border-bottom: 2px solid #17a2b8;
+}
+
+/* Preferences View */
+.preferences-view {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.preferences-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.preferences-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.preferences-header h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.preferences-count {
+    color: #17a2b8;
+    font-size: 16px;
+}
+
+.preferences-actions {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.save-preferences {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.save-preferences:hover {
+    background: #138496;
+}
+
+.category-item.selected {
+    background: #e3f2fd;
+    border: 1px solid #17a2b8;
+}
+
+/* Update existing category item styles */
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-item:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.category-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #17a2b8;
+}
+
+.category-item label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    flex: 1;
+}
+
+/* Loading State */
+.preferences-container.loading {
+    position: relative;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.preferences-container.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #17a2b8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+    .preferences-view {
+        padding: 1rem;
+    }
+
+    .preferences-container {
+        padding: 1rem;
+    }
+
+    .preferences-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .category-item {
+        padding: 0.8rem;
+    }
+
+    .category-item label {
+        font-size: 14px;
+    }
+}
+
+.price-note {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #bbdefb;
+}
+
+.price-note i {
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments for price note */
+@media (max-width: 768px) {
+    .price-note {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .price-note i {
+        font-size: 1rem;
+    }
+}
+
+.destination-filter {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e9ecef;
+}
+
+.filter-label {
+    font-weight: 500;
+    color: #495057;
+    white-space: nowrap;
+}
+
+.toggle-container {
+    display: flex;
+    background-color: #e9ecef;
+    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+}
+
+.toggle-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    color: #495057;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+    background-color: #fff;
+    color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-btn:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .destination-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-container {
+        width: 100%;
+    }
+
+    .toggle-btn {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* Itinerary Planner */
+.itinerary-planner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.itinerary-planner header {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.itinerary-planner .price-note {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #bbdefb;
+    z-index: 1001;
+}
+
+.itinerary-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    margin-top: 0;
+}
+
+.empty-itinerary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #666;
+    text-align: center;
+}
+
+.empty-itinerary i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #17a2b8;
+}
+
+.empty-itinerary p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.itinerary-spots {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.itinerary-spot {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: move;
+}
+
+.itinerary-spot:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.itinerary-spot.dragging {
+    opacity: 0.5;
+    background: #f8f9fa;
+}
+
+.spot-number {
+    width: 40px;
+    height: 40px;
+    background: #17a2b8;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.spot-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.spot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.spot-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.remove-spot {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.remove-spot:hover {
+    background: #f8d7da;
+}
+
+.spot-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.spot-details .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.spot-details .detail-item i {
+    color: #17a2b8;
+}
+
+.spot-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .itinerary-spot {
+        flex-direction: column;
+    }
+
+    .spot-number {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .spot-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+.booking-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
+.booking-btn:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.booking-btn.booked {
+    background-color: #17a2b8;
+}
+
+.booking-btn.booked:hover {
+    background-color: #138496;
+}
+
+.itinerary-total {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-top: 2px solid #e9ecef;
+}
+
+.total-label {
+    color: #495057;
+}
+
+.total-amount {
+    color: #28a745;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .itinerary-total {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .total-amount {
+        font-size: 1.2rem;
+    }
+}
+
+.review-spot {
+    background: none;
+    border: none;
+    color: #ffc107;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.review-spot:hover {
+    background: #fff3cd;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1001;
+}
+
+.modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1002;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.review-choice {
+    text-align: center;
+}
+
+.review-choice p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.choice-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.choice-buttons button {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.choice-buttons button:first-child {
+    background: #28a745;
+    color: white;
+}
+
+.choice-buttons button:last-child {
+    background: #dc3545;
+    color: white;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.rating-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.star-rating {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.star-rating i {
+    color: #ddd;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.star-rating i.active {
+    color: #ffc107;
+}
+
+.comment-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.comment-input textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-review {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.submit-review:hover {
+    background: #218838;
+}
+
+.spot-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.reviews-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reviews-btn:hover {
+    background: #5a6268;
+}
+
+.reviews-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.reviews-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reviews-sort {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.review-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.review-rating {
+    color: #ffc107;
+}
+
+.review-date {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+.review-comment {
+    margin-top: 10px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
