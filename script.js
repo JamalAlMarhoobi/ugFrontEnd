@@ -60,6 +60,7 @@ const app = createApp({
             showItinerary: false,
             experiences: [],
             apiBaseUrl: 'https://smart-tourism-jgps.onrender.com/api',
+            baseUrl: 'https://smart-tourism-jgps.onrender.com',
             sortBy: '',
             sortOrder: 'asc', // 'asc' or 'desc'
             showAllCities: true,
@@ -204,6 +205,11 @@ const app = createApp({
         }
     },
     methods: {
+        getImageUrl(imagePath) {
+            if (!imagePath) return `${this.baseUrl}/images/default.jpg`;
+            if (imagePath.startsWith('http')) return imagePath;
+            return `${this.baseUrl}/images/${imagePath}`;
+        },
         async makeRequest(url, method = 'GET', data = null) {
             try {
                 const options = {
@@ -241,14 +247,11 @@ const app = createApp({
         async fetchSpots() {
             try {
                 this.isLoading = true;
+                this.error = null;
                 const response = await this.makeRequest(`${this.apiBaseUrl}/spots`);
-                this.experiences = response.data || [];
-                console.log('Fetched spots:', this.experiences.length);
-                
-                // Ensure all images have the correct URL
-                this.experiences = this.experiences.map(spot => ({
+                this.experiences = response.data.map(spot => ({
                     ...spot,
-                    image: spot.image || `${this.apiBaseUrl}/images/default.jpg`
+                    image: this.getImageUrl(spot.image)
                 }));
             } catch (error) {
                 console.error('Error in fetchSpots:', error);

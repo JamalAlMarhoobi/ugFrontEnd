@@ -226,10 +226,10 @@
                 <div v-else class="experience-section">
                     <div v-for="experience in filteredExperiences" :key="experience.spotId" class="experience-item">
                         <figure class="experience-image-wrapper">
-                            <img :src="experience.image" 
+                            <img :src="getImageUrl(experience.image)" 
                                  class="experience-image" 
                                  :alt="experience.title"
-                                 @error="experience.image = `${apiBaseUrl}/images/default.jpg`">
+                                 @error="experience.image = getImageUrl(null)">
                         </figure>
                         <div class="experience-content">
                             <h2 v-text="experience.title"></h2>
