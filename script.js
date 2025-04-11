@@ -217,7 +217,9 @@ const app = createApp({
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
-                    }
+                    },
+                    credentials: 'include',
+                    mode: 'cors'
                 };
 
                 if (data) {
