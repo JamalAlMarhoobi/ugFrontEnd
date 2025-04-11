@@ -1930,3 +1930,216 @@ footer {
         -webkit-text-size-adjust: 100%;
     }
 }
+
+/* Mobile Content Optimization */
+@media screen and (max-width: 768px) {
+    /* Main Content Area */
+    main {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    /* Price Note */
+    .price-note {
+        margin: 0;
+        padding: 8px 12px;
+        font-size: 13px;
+        border-radius: 0;
+    }
+
+    .price-note i {
+        font-size: 16px;
+    }
+
+    /* Destination Filter */
+    .destination-filter {
+        margin: 0;
+        padding: 10px 12px;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        background-color: #fff;
+    }
+
+    .filter-label {
+        font-size: 14px;
+    }
+
+    .toggle-container {
+        flex: 1;
+    }
+
+    .toggle-btn {
+        flex: 1;
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    /* Experience Items */
+    .experience-section {
+        padding: 0;
+        gap: 1px;
+        background: #f0f0f0;
+    }
+
+    .experience-item {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .experience-image-wrapper {
+        height: 200px;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .experience-content {
+        padding: 12px;
+    }
+
+    .experience-content h2 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    /* Categories */
+    .experience-categories {
+        margin: 8px 0;
+        gap: 6px;
+    }
+
+    .category-tag {
+        font-size: 11px;
+        padding: 4px 8px;
+        border-radius: 12px;
+        background: #f8f9fa;
+    }
+
+    /* Description */
+    .experience-description {
+        font-size: 13px;
+        margin: 8px 0;
+        line-height: 1.4;
+    }
+
+    /* Details */
+    .experience-details {
+        margin-top: 8px;
+        gap: 8px;
+    }
+
+    .detail-item {
+        font-size: 12px;
+    }
+
+    .detail-item i {
+        font-size: 14px;
+        width: 16px;
+    }
+
+    /* Action Buttons */
+    .add-to-itinerary-btn {
+        margin: 8px 0 0 0;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Preferences View */
+    .preferences-view {
+        padding: 0;
+    }
+
+    .preferences-container {
+        border-radius: 0;
+        padding: 12px;
+    }
+
+    .preferences-header {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+
+    .preferences-header h2 {
+        font-size: 18px;
+    }
+
+    .preferences-count {
+        font-size: 14px;
+    }
+
+    /* Categories Grid */
+    .categories-grid {
+        gap: 8px;
+        padding: 0;
+    }
+
+    .category-item {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .category-item label {
+        font-size: 13px;
+    }
+
+    /* Save Button */
+    .save-preferences {
+        width: 100%;
+        padding: 12px;
+        margin-top: 12px;
+    }
+
+    /* Itinerary Modal */
+    .itinerary-planner {
+        padding: 0;
+    }
+
+    .itinerary-content {
+        padding: 12px;
+    }
+
+    .itinerary-spot {
+        padding: 12px;
+        margin: 0 0 8px 0;
+    }
+
+    /* Reviews Section */
+    .reviews-content {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        padding: 12px;
+    }
+
+    .review-item {
+        padding: 12px 0;
+    }
+}
+
+/* Additional iPhone SE and Small Device Optimizations */
+@media screen and (max-width: 375px) {
+    .experience-content h2 {
+        font-size: 15px;
+    }
+
+    .category-tag {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    .experience-description {
+        font-size: 12px;
+    }
+
+    .detail-item {
+        font-size: 11px;
+    }
+
+    .add-to-itinerary-btn {
+        font-size: 13px;
+    }
+}
