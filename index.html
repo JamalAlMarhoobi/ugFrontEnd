@@ -175,25 +175,6 @@
                 </div>
             </header>
 
-            <!-- Price Note -->
-            <div class="price-note">
-                <i class="fas fa-info-circle"></i>
-                <span>Note: All prices are the starting entry fees for international adults.</span>
-            </div>
-
-            <!-- Destination City Filter -->
-            <div v-if="isAuthenticated" class="destination-filter">
-                <label class="filter-label">Show spots:</label>
-                <div class="toggle-container">
-                    <button class="toggle-btn" :class="{ active: showAllCities }" @click="showAllCities = true">
-                        All Cities
-                    </button>
-                    <button class="toggle-btn" :class="{ active: !showAllCities }" @click="showAllCities = false">
-                        My City Only
-                    </button>
-                </div>
-            </div>
-        
             <main>
                 <!-- Preferences View -->
                 <div v-if="currentView === 'preferences'" class="preferences-view">
@@ -224,6 +205,25 @@
 
                 <!-- Experience Section (Browse All and Recommended) -->
                 <div v-else class="experience-section">
+                    <!-- Price Note -->
+                    <div class="price-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Note: All prices are the starting entry fees for international adults.</span>
+                    </div>
+
+                    <!-- Destination City Filter -->
+                    <div v-if="isAuthenticated" class="destination-filter">
+                        <label class="filter-label">Show spots:</label>
+                        <div class="toggle-container">
+                            <button class="toggle-btn" :class="{ active: showAllCities }" @click="showAllCities = true">
+                                All Cities
+                            </button>
+                            <button class="toggle-btn" :class="{ active: !showAllCities }" @click="showAllCities = false">
+                                My City Only
+                            </button>
+                        </div>
+                    </div>
+
                     <div v-for="experience in filteredExperiences" :key="experience.spotId" class="experience-item">
                         <figure class="experience-image-wrapper">
                             <img :src="getImageUrl(experience.image)" 
@@ -312,12 +312,6 @@
                             </button>
                         </div>
                     </header>
-
-                    <!-- Price Note -->
-                    <div class="price-note">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Note: All prices are the starting entry fees for international adults.</span>
-                    </div>
 
                     <div class="itinerary-content">
                         <div v-if="itinerary.length === 0" class="empty-itinerary">
