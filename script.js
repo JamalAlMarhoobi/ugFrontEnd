@@ -100,6 +100,12 @@ const app = createApp({
                 this.currentUserEmail = user.email;
                 this.userCategories = user.preferences || [];
                 this.fetchItinerary();
+                
+                // Restore the last view from localStorage
+                const lastView = localStorage.getItem('lastView');
+                if (lastView) {
+                    this.currentView = lastView;
+                }
             } catch (error) {
                 console.error('Error parsing stored user:', error);
                 localStorage.removeItem('currentUser');
@@ -119,6 +125,9 @@ const app = createApp({
         currentView: {
             handler(newView) {
                 console.log('View changed to:', newView);
+                // Save the current view to localStorage
+                localStorage.setItem('lastView', newView);
+                
                 if (newView === 'browse-recommended') {
                     this.fetchRecommendedSpots();
                 } else if (newView === 'browse-all') {
