@@ -352,31 +352,6 @@ const app = createApp({
             }
         },
 
-        //validatePassword(password) {
-            //const minLength = 8;
-            //const hasUpperCase = /[A-Z]/.test(password);
-            //const hasLowerCase = /[a-z]/.test(password);
-            //const hasNumbers = /\d/.test(password);
-            //const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-            //if (password.length < minLength) {
-            //    return 'Password must be at least 8 characters long';
-            //}
-            //if (!hasUpperCase) {
-            //    return 'Password must contain at least one uppercase letter';
-            //}
-            //if (!hasLowerCase) {
-            //    return 'Password must contain at least one lowercase letter';
-            //}
-            //if (!hasNumbers) {
-            //    return 'Password must contain at least one number';
-            //}
-            //if (!hasSpecialChar) {
-            //    return 'Password must contain at least one special character';
-            //}
-            //return null;
-        //},
-
         validateEmail(emailId) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(emailId);
@@ -390,12 +365,6 @@ const app = createApp({
 
             if (!this.validateEmail(this.signupForm.email)) {
                 this.signupError = 'Please enter a valid email address';
-                return false;
-            }
-
-            const passwordError = this.validatePassword(this.signupForm.password);
-            if (passwordError) {
-                this.signupError = passwordError;
                 return false;
             }
 
@@ -434,11 +403,6 @@ const app = createApp({
             // Validate password
             if (!this.loginForm.password || this.loginForm.password.trim() === '') {
                 errors.push('Password is required');
-            } else {
-                const passwordError = this.validatePassword(this.loginForm.password);
-                if (passwordError) {
-                    errors.push(passwordError);
-                }
             }
 
             if (errors.length > 0) {
