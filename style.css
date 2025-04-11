@@ -2218,3 +2218,317 @@ footer {
         font-size: 13px;
     }
 }
+
+/* Base styles for all screen sizes */
+:root {
+    --header-height: 60px;
+    --content-max-width: 1400px;
+    --card-border-radius: 12px;
+    --primary-color: #17a2b8;
+    --secondary-color: #dc3545;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #dee2e6;
+}
+
+/* Ensure proper box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Desktop Styles (Large screens) */
+@media screen and (min-width: 1200px) {
+    .main-app {
+        max-width: var(--content-max-width);
+        margin: 0 auto;
+    }
+
+    header {
+        padding: 0 40px;
+    }
+
+    .experience-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .experience-item {
+        height: 100%;
+    }
+
+    .search-and-sort {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .search-container {
+        min-width: 300px;
+    }
+
+    .sort-container {
+        min-width: 150px;
+    }
+}
+
+/* Desktop Styles (Medium screens) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .main-app {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    header {
+        padding: 0 32px;
+    }
+
+    .experience-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .search-container {
+        min-width: 250px;
+    }
+
+    .sort-container {
+        min-width: 140px;
+    }
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .main-app {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    header {
+        padding: 0 24px;
+    }
+
+    .experience-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .search-container {
+        min-width: 200px;
+    }
+
+    .sort-container {
+        min-width: 130px;
+    }
+
+    .nav-links a {
+        padding: 8px 16px;
+    }
+}
+
+/* Large Mobile Styles */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .main-app {
+        width: 100%;
+    }
+
+    header {
+        padding: 12px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .search-input {
+        height: 36px;
+    }
+
+    .experience-image-wrapper {
+        height: 200px;
+    }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 575px) {
+    .main-app {
+        width: 100%;
+    }
+
+    header {
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        gap: 6px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .search-input {
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .experience-image-wrapper {
+        height: 180px;
+    }
+
+    .experience-content h2 {
+        font-size: 15px;
+    }
+
+    .category-tag {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+}
+
+/* iPhone SE and other small devices */
+@media screen and (max-width: 375px) {
+    .logo {
+        font-size: 15px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .search-input {
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .experience-image-wrapper {
+        height: 160px;
+    }
+
+    .experience-content h2 {
+        font-size: 14px;
+    }
+
+    .category-tag {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
+/* Ensure touch targets are large enough on mobile */
+@media (hover: none) and (pointer: coarse) {
+    button,
+    .nav-links a,
+    .sort-dropdown,
+    .toggle-btn,
+    .search-button,
+    input[type="checkbox"] + label {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        height: 44px;
+    }
+}
+
+/* High-resolution screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .experience-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Landscape orientation fixes */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .header {
+        position: relative;
+    }
+
+    .experience-image-wrapper {
+        height: 140px;
+    }
+
+    .modal-content {
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .search-input,
+    .sort-dropdown,
+    .toggle-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: inherit;
+    }
+}
+
+/* Print styles */
+@media print {
+    .experience-item {
+        break-inside: avoid;
+    }
+
+    .header-right,
+    .search-and-sort {
+        display: none;
+    }
+}
+
+/* Ensure proper scaling on high DPI screens */
+@supports (zoom: 1) {
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        html {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+}
+
+/* Prevent content shift on load */
+.main-app {
+    min-height: 100vh;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.main-app.loading {
+    opacity: 0;
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+    .header {
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+        padding-top: max(0px, env(safe-area-inset-top));
+    }
+
+    .main-app {
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+}
