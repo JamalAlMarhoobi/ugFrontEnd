@@ -1365,134 +1365,105 @@ footer {
     border: 1px solid #e9ecef;
     border-radius: 8px;
     transition: all 0.3s ease;
-    position: relative;
-}
-
-.drag-handle {
-    display: none;  /* Hidden by default for desktop */
-    color: #666;
-    padding: 8px;
     cursor: move;
-    touch-action: none;
 }
 
-.drag-handle i {
-    font-size: 20px;
+.itinerary-spot:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
 }
 
-/* Mobile Styles for Itinerary */
-@media screen and (max-width: 768px) {
+.itinerary-spot.dragging {
+    opacity: 0.5;
+    background: #f8f9fa;
+}
+
+.spot-number {
+    width: 40px;
+    height: 40px;
+    background: #17a2b8;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.spot-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.spot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.spot-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.remove-spot {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.remove-spot:hover {
+    background: #f8d7da;
+}
+
+.spot-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.spot-details .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.spot-details .detail-item i {
+    color: #17a2b8;
+}
+
+.spot-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .itinerary-spot {
-        padding: 12px;
-        margin: 0 0 8px 0;
-        gap: 8px;
         flex-direction: column;
-    }
-
-    .drag-handle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        border-bottom: 1px solid #eee;
-        margin-bottom: 8px;
-        padding: 4px;
-    }
-
-    .drag-handle i {
-        font-size: 16px;
     }
 
     .spot-number {
         width: 30px;
         height: 30px;
-        font-size: 14px;
-    }
-
-    .spot-content {
-        width: 100%;
-    }
-
-    .itinerary-spot.dragging {
-        opacity: 0.7;
-        background: #f8f9fa;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transform: scale(1.02);
-    }
-
-    .spot-header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .spot-header h3 {
-        font-size: 16px;
-        flex: 1;
-        margin-right: 8px;
+        font-size: 1rem;
     }
 
     .spot-details {
         flex-direction: column;
-        gap: 6px;
-    }
-
-    .spot-categories {
-        flex-wrap: wrap;
-        gap: 4px;
-    }
-
-    .category-tag {
-        font-size: 11px;
-        padding: 3px 8px;
-    }
-
-    /* Improve touch targets */
-    .remove-spot,
-    .review-spot {
-        padding: 8px;
-        min-width: 40px;
-        min-height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .spot-actions {
-        display: flex;
-        gap: 8px;
-        margin-top: 8px;
-        width: 100%;
-        justify-content: flex-end;
-    }
-
-    /* Visual feedback for dragging */
-    .itinerary-spots {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .itinerary-spots .drag-placeholder {
-        height: 2px;
-        background-color: #17a2b8;
-        transition: all 0.2s ease;
-    }
-}
-
-/* Additional iPhone SE and Small Device Optimizations */
-@media screen and (max-width: 375px) {
-    .drag-handle {
-        padding: 2px;
-    }
-
-    .drag-handle i {
-        font-size: 14px;
-    }
-
-    .spot-header h3 {
-        font-size: 14px;
+        gap: 0.5rem;
     }
 }
 
