@@ -164,12 +164,9 @@
                     <div class="search-and-sort">
                         <div class="search-container" :class="{ 'hidden': currentView === 'preferences' }">
                             <input type="text" placeholder="Search" v-model="searchQuery" class="search-input">
-                            <button class="search-button" :class="{ 'hidden': currentView === 'preferences' }">
-                                <i class="fas fa-search"></i>
-                            </button>
                         </div>
                         <div class="sort-container" :class="{ 'hidden': currentView === 'preferences' }">
-                            <select v-model="sortBy" class="sort-dropdown">
+                            <select v-model="sortBy" class="sort-dropdown" placeholder="Sort by">
                                 <option value="title">Sort by Title</option>
                                 <option value="price">Sort by Price</option>
                                 <option value="rating">Sort by Rating</option>
@@ -196,7 +193,6 @@
                     <span>Note: All prices are the starting entry fees for international adults.</span>
                 </div>
                 <div v-if="isAuthenticated" class="destination-filter">
-                    <label class="filter-label">Show spots:</label>
                     <div class="toggle-container">
                         <button class="toggle-btn" :class="{ active: showAllCities }" @click="showAllCities = true">
                             All Cities
