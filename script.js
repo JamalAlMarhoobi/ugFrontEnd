@@ -106,9 +106,6 @@ const app = createApp({
             }
         }
 
-        // Initialize URL routing
-        this.initializeRouting();
-
         // Fetch all spots when the app is created
         this.fetchSpots();
     },
@@ -456,33 +453,44 @@ const app = createApp({
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(this.loginForm)
+                body: JSON.stringify({
+                    email: this.loginForm.email,
+                    password: this.loginForm.password
+                })
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        this.isAuthenticated = true;
-                        this.currentUserEmail = data.user.email;
-                        this.userCategories = data.user.preferences || [];
-                        localStorage.setItem('currentUser', JSON.stringify(data.user));
-                        
-                        // Initialize routing after successful login
-                        this.initializeRouting();
-                        
-                        // Set initial view from URL or default
-                        const hash = window.location.hash.slice(1);
-                        this.currentView = hash || 'browse-all';
-                        window.location.hash = this.currentView;
-                        localStorage.setItem('currentView', this.currentView);
-                        
-                        this.fetchItinerary();
-                    } else {
-                        this.loginError = data.message;
+                .then(response => {
+                    console.log('Login response status:', response.status);
+                    if (!response.ok) {
+                        return response.json().then(data => {
+                            throw new Error(data.message || 'Login failed');
+                        });
                     }
+                    return response.json();
+                })
+                .then(async data => {
+                    console.log('Login successful:', data);
+                    this.isAuthenticated = true;
+                    this.currentUserEmail = this.loginForm.email;
+                    this.userCategories = data.user.preferences || [];
+
+                    // Fetch user data immediately after login
+                    try {
+                        const userResponse = await this.makeRequest(`${this.apiBaseUrl}/users/${this.currentUserEmail}`);
+                        if (userResponse.success) {
+                            this.userData = userResponse.data;
+                            console.log('User data fetched:', this.userData);
+                        }
+                    } catch (error) {
+                        console.error('Error fetching user data:', error);
+                    }
+
+                    // Fetch the user's itinerary
+                    await this.fetchItinerary();
+                    this.fetchSpots();
                 })
                 .catch(error => {
                     console.error('Login error:', error);
-                    this.loginError = 'An error occurred during login';
+                    this.loginError = error.message;
                 })
                 .finally(() => {
                     this.isLoading = false;
@@ -572,13 +580,12 @@ const app = createApp({
 
         handleLogout() {
             this.isAuthenticated = false;
-            this.currentUserEmail = '';
-            this.userCategories = [];
-            this.itinerary = [];
-            localStorage.removeItem('currentUser');
-            localStorage.removeItem('currentView');
-            window.location.hash = '';
             this.currentPage = 'login';
+            this.itinerary = [];
+            this.userCategories = [];
+            this.selectedCategories = [];
+            this.experiences = [];
+            this.error = null;
         },
 
         addToItinerary(experience) {
@@ -737,45 +744,29 @@ const app = createApp({
 
         async fetchItinerary() {
             try {
-                console.log('Starting fetchItinerary for user:', this.currentUserEmail);
-                
-                if (!this.currentUserEmail) {
-                    console.error('No user email available for fetching itinerary');
-                    this.itinerary = [];
-                    return;
-                }
+                console.log('Fetching itinerary for user:', this.currentUserEmail);
 
                 const response = await fetch(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
-                console.log('Itinerary response status:', response.status);
 
                 if (response.status === 404) {
-                    console.log('No existing itinerary found for user:', this.currentUserEmail);
+                    console.log('No existing itinerary found');
                     this.itinerary = [];
                     return;
                 }
 
                 if (!response.ok) {
                     const errorData = await response.json();
-                    console.error('Error response from server:', errorData);
                     throw new Error(errorData.message || 'Failed to fetch itinerary');
                 }
 
                 const data = await response.json();
-                console.log('Raw itinerary data:', data);
+                console.log('Fetched itinerary data:', data);
 
-                if (!data.success) {
-                    console.error('Server returned unsuccessful response:', data);
+                if (!data.success || !data.data || !data.data.spots) {
+                    console.log('No spots found in itinerary');
                     this.itinerary = [];
                     return;
                 }
-
-                if (!data.data || !data.data.spots || !Array.isArray(data.data.spots)) {
-                    console.error('Invalid itinerary data structure:', data);
-                    this.itinerary = [];
-                    return;
-                }
-
-                console.log('Found spots in itinerary:', data.data.spots.length);
 
                 // Fetch all spots to get full details
                 const spotsResponse = await fetch(`${this.apiBaseUrl}/spots`);
@@ -785,13 +776,13 @@ const app = createApp({
 
                 const spotsData = await spotsResponse.json();
                 const allSpots = spotsData.data || [];
-                console.log('Total spots available:', allSpots.length);
+                console.log('Fetched all spots:', allSpots);
 
                 // Merge itinerary data with full spot details
                 this.itinerary = data.data.spots.map(itinerarySpot => {
                     const fullSpot = allSpots.find(spot => spot.spotId === itinerarySpot.spotId);
                     if (!fullSpot) {
-                        console.warn('Spot not found in database:', itinerarySpot.spotId);
+                        console.warn('Spot not found:', itinerarySpot.spotId);
                         return null;
                     }
                     return {
@@ -801,11 +792,9 @@ const app = createApp({
                     };
                 }).filter(spot => spot !== null);
 
-                console.log('Final merged itinerary:', this.itinerary);
-                console.log('Number of spots in final itinerary:', this.itinerary.length);
+                console.log('Merged itinerary:', this.itinerary);
             } catch (error) {
-                console.error('Error in fetchItinerary:', error);
-                console.error('Error stack:', error.stack);
+                console.error('Error fetching itinerary:', error);
                 this.itinerary = [];
             }
         },
@@ -1041,33 +1030,7 @@ const app = createApp({
 
         toggleReviewsSortOrder() {
             this.reviewsSortOrder = this.reviewsSortOrder === 'asc' ? 'desc' : 'asc';
-        },
-
-        // Add new routing methods
-        initializeRouting() {
-            // Set initial view from URL or localStorage
-            const hash = window.location.hash.slice(1) || localStorage.getItem('currentView') || 'browse-all';
-            this.currentView = hash;
-            
-            // Update URL to match current view
-            window.location.hash = this.currentView;
-
-            // Listen for URL changes
-            window.addEventListener('hashchange', () => {
-                const newView = window.location.hash.slice(1);
-                if (newView && this.isAuthenticated) {
-                    this.currentView = newView;
-                }
-            });
-        },
-
-        updateView(newView) {
-            if (this.isAuthenticated) {
-                this.currentView = newView;
-                window.location.hash = newView;
-                localStorage.setItem('currentView', newView);
-            }
-        },
+        }
     }
 });
 
