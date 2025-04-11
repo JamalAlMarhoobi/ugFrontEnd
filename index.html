@@ -166,7 +166,8 @@
                             <input type="text" placeholder="Search" v-model="searchQuery" class="search-input">
                         </div>
                         <div class="sort-container" :class="{ 'hidden': currentView === 'preferences' }">
-                            <select v-model="sortBy" class="sort-dropdown" placeholder="Sort by">
+                            <select v-model="sortBy" class="sort-dropdown">
+                                <option value="" disabled selected>Sort by...</option>
                                 <option value="title">Sort by Title</option>
                                 <option value="price">Sort by Price</option>
                                 <option value="rating">Sort by Rating</option>
