@@ -161,19 +161,21 @@
                         :class="{ active: currentView === 'browse-recommended' }">Browse Recommended</a>
                 </nav>
                 <div class="header-right">
-                    <div class="search-container" v-if="currentView !== 'preferences'">
-                        <div class="search-input-group">
+                    <div class="search-and-sort">
+                        <div class="search-container" :class="{ 'hidden': currentView === 'preferences' }">
                             <input type="text" placeholder="Search" v-model="searchQuery" class="search-input">
-                            <button class="search-button"><i class="fas fa-search"></i></button>
+                            <button class="search-button" :class="{ 'hidden': currentView === 'preferences' }">
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
-                        <div class="sort-container">
-                            <select class="sort-dropdown" v-model="sortBy">
+                        <div class="sort-container" :class="{ 'hidden': currentView === 'preferences' }">
+                            <select v-model="sortBy" class="sort-dropdown">
                                 <option value="title">Sort by Title</option>
                                 <option value="price">Sort by Price</option>
                                 <option value="rating">Sort by Rating</option>
-                                <option value="reviewCount">Sort by Review Count</option>
+                                <option value="reviewCount">Sort by Reviews</option>
                             </select>
-                            <button class="sort-order-btn" @click="toggleSortOrder">
+                            <button @click="toggleSortOrder" class="sort-order-btn">
                                 <i :class="sortOrder === 'asc' ? 'fas fa-sort-amount-up' : 'fas fa-sort-amount-down'"></i>
                             </button>
                         </div>
