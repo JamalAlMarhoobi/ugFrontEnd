@@ -100,17 +100,14 @@ const app = createApp({
                 this.currentUserEmail = user.email;
                 this.userCategories = user.preferences || [];
                 this.fetchItinerary();
-                
-                // Restore the last view from localStorage
-                const lastView = localStorage.getItem('lastView');
-                if (lastView) {
-                    this.currentView = lastView;
-                }
             } catch (error) {
                 console.error('Error parsing stored user:', error);
                 localStorage.removeItem('currentUser');
             }
         }
+
+        // Initialize URL routing
+        this.initializeRouting();
 
         // Fetch all spots when the app is created
         this.fetchSpots();
@@ -125,9 +122,6 @@ const app = createApp({
         currentView: {
             handler(newView) {
                 console.log('View changed to:', newView);
-                // Save the current view to localStorage
-                localStorage.setItem('lastView', newView);
-                
                 if (newView === 'browse-recommended') {
                     this.fetchRecommendedSpots();
                 } else if (newView === 'browse-all') {
@@ -462,44 +456,30 @@ const app = createApp({
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    email: this.loginForm.email,
-                    password: this.loginForm.password
-                })
+                body: JSON.stringify(this.loginForm)
             })
-                .then(response => {
-                    console.log('Login response status:', response.status);
-                    if (!response.ok) {
-                        return response.json().then(data => {
-                            throw new Error(data.message || 'Login failed');
-                        });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        this.isAuthenticated = true;
+                        this.currentUserEmail = data.user.email;
+                        this.userCategories = data.user.preferences || [];
+                        localStorage.setItem('currentUser', JSON.stringify(data.user));
+                        
+                        // Set initial view from URL or default
+                        const hash = window.location.hash.slice(1);
+                        this.currentView = hash || 'browse-all';
+                        window.location.hash = this.currentView;
+                        localStorage.setItem('currentView', this.currentView);
+                        
+                        this.fetchItinerary();
+                    } else {
+                        this.loginError = data.message;
                     }
-                    return response.json();
-                })
-                .then(async data => {
-                    console.log('Login successful:', data);
-                    this.isAuthenticated = true;
-                    this.currentUserEmail = this.loginForm.email;
-                    this.userCategories = data.user.preferences || [];
-
-                    // Fetch user data immediately after login
-                    try {
-                        const userResponse = await this.makeRequest(`${this.apiBaseUrl}/users/${this.currentUserEmail}`);
-                        if (userResponse.success) {
-                            this.userData = userResponse.data;
-                            console.log('User data fetched:', this.userData);
-                        }
-                    } catch (error) {
-                        console.error('Error fetching user data:', error);
-                    }
-
-                    // Fetch the user's itinerary
-                    await this.fetchItinerary();
-                    this.fetchSpots();
                 })
                 .catch(error => {
                     console.error('Login error:', error);
-                    this.loginError = error.message;
+                    this.loginError = 'An error occurred during login';
                 })
                 .finally(() => {
                     this.isLoading = false;
@@ -589,12 +569,13 @@ const app = createApp({
 
         handleLogout() {
             this.isAuthenticated = false;
-            this.currentPage = 'login';
-            this.itinerary = [];
+            this.currentUserEmail = '';
             this.userCategories = [];
-            this.selectedCategories = [];
-            this.experiences = [];
-            this.error = null;
+            this.itinerary = [];
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('currentView');
+            window.location.hash = '';
+            this.currentPage = 'login';
         },
 
         addToItinerary(experience) {
@@ -1039,7 +1020,33 @@ const app = createApp({
 
         toggleReviewsSortOrder() {
             this.reviewsSortOrder = this.reviewsSortOrder === 'asc' ? 'desc' : 'asc';
-        }
+        },
+
+        // Add new routing methods
+        initializeRouting() {
+            // Set initial view from URL or localStorage
+            const hash = window.location.hash.slice(1) || localStorage.getItem('currentView') || 'browse-all';
+            this.currentView = hash;
+            
+            // Update URL to match current view
+            window.location.hash = this.currentView;
+
+            // Listen for URL changes
+            window.addEventListener('hashchange', () => {
+                const newView = window.location.hash.slice(1);
+                if (newView && this.isAuthenticated) {
+                    this.currentView = newView;
+                }
+            });
+        },
+
+        updateView(newView) {
+            if (this.isAuthenticated) {
+                this.currentView = newView;
+                window.location.hash = newView;
+                localStorage.setItem('currentView', newView);
+            }
+        },
     }
 });
 

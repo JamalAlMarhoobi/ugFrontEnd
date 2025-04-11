@@ -153,11 +153,11 @@
             <header>
                 <div class="logo">Smart Tourism Planner</div>
                 <nav class="nav-links">
-                    <a href="#" @click.prevent="currentView = 'preferences'"
+                    <a href="#" @click.prevent="updateView('preferences')"
                         :class="{ active: currentView === 'preferences' }">My Preferences</a>
-                    <a href="#" @click.prevent="currentView = 'browse-all'"
+                    <a href="#" @click.prevent="updateView('browse-all')"
                         :class="{ active: currentView === 'browse-all' }">Browse All</a>
-                    <a href="#" @click.prevent="currentView = 'browse-recommended'"
+                    <a href="#" @click.prevent="updateView('browse-recommended')"
                         :class="{ active: currentView === 'browse-recommended' }">Browse Recommended</a>
                 </nav>
                 <div class="header-right">
@@ -292,11 +292,11 @@
                     <header>
                         <div class="logo">Smart Tourism Planner</div>
                         <nav class="nav-links">
-                            <a href="#" @click.prevent="currentView = 'preferences'"
+                            <a href="#" @click.prevent="updateView('preferences')"
                                 :class="{ active: currentView === 'preferences' }">My Preferences</a>
-                            <a href="#" @click.prevent="currentView = 'browse-all'"
+                            <a href="#" @click.prevent="updateView('browse-all')"
                                 :class="{ active: currentView === 'browse-all' }">Browse All</a>
-                            <a href="#" @click.prevent="currentView = 'browse-recommended'"
+                            <a href="#" @click.prevent="updateView('browse-recommended')"
                                 :class="{ active: currentView === 'browse-recommended' }">Browse Recommended</a>
                         </nav>
                         <div class="header-right">
