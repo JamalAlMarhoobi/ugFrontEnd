@@ -466,6 +466,9 @@ const app = createApp({
                         this.userCategories = data.user.preferences || [];
                         localStorage.setItem('currentUser', JSON.stringify(data.user));
                         
+                        // Initialize routing after successful login
+                        this.initializeRouting();
+                        
                         // Set initial view from URL or default
                         const hash = window.location.hash.slice(1);
                         this.currentView = hash || 'browse-all';
