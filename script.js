@@ -737,29 +737,45 @@ const app = createApp({
 
         async fetchItinerary() {
             try {
-                console.log('Fetching itinerary for user:', this.currentUserEmail);
+                console.log('Starting fetchItinerary for user:', this.currentUserEmail);
+                
+                if (!this.currentUserEmail) {
+                    console.error('No user email available for fetching itinerary');
+                    this.itinerary = [];
+                    return;
+                }
 
                 const response = await fetch(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
+                console.log('Itinerary response status:', response.status);
 
                 if (response.status === 404) {
-                    console.log('No existing itinerary found');
+                    console.log('No existing itinerary found for user:', this.currentUserEmail);
                     this.itinerary = [];
                     return;
                 }
 
                 if (!response.ok) {
                     const errorData = await response.json();
+                    console.error('Error response from server:', errorData);
                     throw new Error(errorData.message || 'Failed to fetch itinerary');
                 }
 
                 const data = await response.json();
-                console.log('Fetched itinerary data:', data);
+                console.log('Raw itinerary data:', data);
 
-                if (!data.success || !data.data || !data.data.spots) {
-                    console.log('No spots found in itinerary');
+                if (!data.success) {
+                    console.error('Server returned unsuccessful response:', data);
                     this.itinerary = [];
                     return;
                 }
+
+                if (!data.data || !data.data.spots || !Array.isArray(data.data.spots)) {
+                    console.error('Invalid itinerary data structure:', data);
+                    this.itinerary = [];
+                    return;
+                }
+
+                console.log('Found spots in itinerary:', data.data.spots.length);
 
                 // Fetch all spots to get full details
                 const spotsResponse = await fetch(`${this.apiBaseUrl}/spots`);
@@ -769,13 +785,13 @@ const app = createApp({
 
                 const spotsData = await spotsResponse.json();
                 const allSpots = spotsData.data || [];
-                console.log('Fetched all spots:', allSpots);
+                console.log('Total spots available:', allSpots.length);
 
                 // Merge itinerary data with full spot details
                 this.itinerary = data.data.spots.map(itinerarySpot => {
                     const fullSpot = allSpots.find(spot => spot.spotId === itinerarySpot.spotId);
                     if (!fullSpot) {
-                        console.warn('Spot not found:', itinerarySpot.spotId);
+                        console.warn('Spot not found in database:', itinerarySpot.spotId);
                         return null;
                     }
                     return {
@@ -785,9 +801,11 @@ const app = createApp({
                     };
                 }).filter(spot => spot !== null);
 
-                console.log('Merged itinerary:', this.itinerary);
+                console.log('Final merged itinerary:', this.itinerary);
+                console.log('Number of spots in final itinerary:', this.itinerary.length);
             } catch (error) {
-                console.error('Error fetching itinerary:', error);
+                console.error('Error in fetchItinerary:', error);
+                console.error('Error stack:', error.stack);
                 this.itinerary = [];
             }
         },
