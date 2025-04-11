@@ -349,104 +349,123 @@ header {
     gap: 20px; /* Add space between items */
 }
 
-/* Search container styling */
+/* Search and Sort Container Styles */
 .search-container {
-    position: relative; /* For positioning search button */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    gap: 10px; /* Add space between items */
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Search input styling */
+.search-input-group {
+    position: relative;
+    flex: 1;
+}
+
 .search-input {
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: none;
-    min-width: 200px;
-    background-color: #f5f5f5; /* Light grey background */
+    width: 100%;
+    padding: 8px 35px 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    background: #f8f9fa;
 }
 
-/* Search input focus state */
-.search-input:focus {
-    outline: none; /* Remove default outline */
-    border-color: #007bff; /* Blue border on focus */
-}
-
-/* Search button styling */
 .search-button {
-    background: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 8px 15px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
 }
 
-/* My Itinerary button styling */
-.my-itinerary-btn {
-    background: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 8px 15px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    gap: 5px; /* Add space between icon and text */
-    position: relative; /* For positioning count badge */
+/* Sort Container Styles */
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 4px 12px;
 }
 
-/* My Itinerary button hover state */
-.my-itinerary-btn:hover {
-    background: #0056b3; /* Darker blue on hover */
+.sort-dropdown {
+    padding: 4px 8px;
+    border: none;
+    background: none;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
 }
 
-/* Itinerary count badge */
-.itinerary-count {
-    position: absolute; /* Position relative to button */
-    top: -8px; /* Move up */
-    right: -8px; /* Move right */
-    background: #dc3545; /* Red background */
-    color: white; /* White text */
-    width: 20px; /* Set width */
-    height: 20px; /* Set height */
-    border-radius: 50%; /* Make circular */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    font-size: 12px; /* Set font size */
-    font-weight: bold; /* Make text bold */
-    animation: popIn 0.3s ease; /* Add pop-in animation */
+.sort-order-btn {
+    background: none;
+    border: none;
+    color: #17a2b8;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
 }
 
-/* Pop-in animation for count badge */
-@keyframes popIn {
-    0% {
-        transform: scale(0); /* Start scaled down */
-        opacity: 0; /* Start transparent */
+.sort-order-btn:hover {
+    color: #138496;
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 769px) {
+    .search-container {
+        min-width: 400px;
     }
-    100% {
-        transform: scale(1); /* End at full size */
-        opacity: 1; /* End fully visible */
+
+    .search-input {
+        min-width: 200px;
+    }
+
+    .sort-container {
+        display: flex;
     }
 }
 
-/* Logout button styling */
-.logout-btn {
-    background: #dc3545; /* Red background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 8px 15px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .search-container {
+        width: 100%;
+    }
+
+    .search-input-group {
+        width: 100%;
+    }
+
+    .sort-container {
+        display: none;
+    }
+
+    .search-input {
+        width: 100%;
+        font-size: 14px;
+    }
 }
 
-/* Logout button hover state */
-.logout-btn:hover {
-    background: #c82333; /* Darker red on hover */
+/* Header Right Section */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .header-right {
+        width: 100%;
+        gap: 8px;
+    }
 }
 
 /* Main Content */

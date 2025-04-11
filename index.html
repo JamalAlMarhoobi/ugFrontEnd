@@ -161,9 +161,22 @@
                         :class="{ active: currentView === 'browse-recommended' }">Browse Recommended</a>
                 </nav>
                 <div class="header-right">
-                    <div class="search-container">
-                        <input type="text" placeholder="Search" v-model="searchQuery" class="search-input">
-                        <button class="search-button"><i class="fas fa-search"></i></button>
+                    <div class="search-container" v-if="currentView !== 'preferences'">
+                        <div class="search-input-group">
+                            <input type="text" placeholder="Search" v-model="searchQuery" class="search-input">
+                            <button class="search-button"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="sort-container">
+                            <select class="sort-dropdown" v-model="sortBy">
+                                <option value="title">Sort by Title</option>
+                                <option value="price">Sort by Price</option>
+                                <option value="rating">Sort by Rating</option>
+                                <option value="reviewCount">Sort by Review Count</option>
+                            </select>
+                            <button class="sort-order-btn" @click="toggleSortOrder">
+                                <i :class="sortOrder === 'asc' ? 'fas fa-sort-amount-up' : 'fas fa-sort-amount-down'"></i>
+                            </button>
+                        </div>
                     </div>
                     <button class="my-itinerary-btn" @click="showItinerary = true">
                         My Itinerary
