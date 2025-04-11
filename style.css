@@ -1777,3 +1777,199 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Auth Container */
+    .auth-container {
+        padding: 20px;
+    }
+
+    .form-section {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .form-header h2 {
+        font-size: 24px;
+    }
+
+    /* Form Inputs */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 16px;
+        padding: 12px;
+        height: auto;
+    }
+
+    /* Buttons */
+    .auth-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Header */
+    header {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    /* Navigation */
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Experience Items */
+    .experience-item {
+        flex-direction: column;
+    }
+
+    .experience-image-wrapper {
+        width: 100%;
+        height: 200px;
+    }
+
+    .experience-content {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Itinerary */
+    .itinerary-spot {
+        flex-direction: column;
+    }
+
+    .spot-number {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+    }
+
+    .spot-content {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Modals */
+    .modal-content {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    /* Categories Grid */
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .category-item {
+        padding: 10px;
+    }
+
+    /* Destination Filter */
+    .destination-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .toggle-btn {
+        width: 50%;
+    }
+
+    /* Price Note */
+    .price-note {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Review Modal */
+    .review-form {
+        padding: 15px;
+    }
+
+    .rating-input,
+    .comment-input {
+        margin-bottom: 15px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    /* Reviews Modal */
+    .reviews-content {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .reviews-list {
+        max-height: 60vh;
+    }
+}
+
+/* iPhone-specific fixes */
+@media screen and (max-width: 375px) {
+    .form-group input,
+    .form-group select {
+        font-size: 16px !important;
+        -webkit-appearance: none;
+        border-radius: 5px;
+    }
+
+    select {
+        background-image: none;
+        padding-right: 10px;
+    }
+
+    .auth-button {
+        -webkit-appearance: none;
+    }
+
+    .search-input {
+        font-size: 16px !important;
+    }
+}
+
+/* Prevent zoom on input focus */
+@media screen and (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}

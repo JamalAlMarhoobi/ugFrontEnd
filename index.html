@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label for="login-email">Email Address</label>
                             <input type="email" id="login-email" v-model="loginForm.email"
-                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                 title="Please enter a valid email address" required>
                         </div>
                         <div class="form-group">
@@ -88,7 +88,7 @@
                             <div class="form-group">
                                 <label for="email">Email Address</label>
                                 <input type="email" id="email" v-model="signupForm.email"
-                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                     title="Please enter a valid email address" required>
                             </div>
                             <div class="form-group">
