@@ -1213,27 +1213,26 @@ footer {
     font-size: 1.1rem;
 }
 
-/* Responsive adjustments for price note */
-@media (max-width: 768px) {
-    .price-note {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-    }
-
-    .price-note i {
-        font-size: 1rem;
-    }
-}
-
 .destination-filter {
     background-color: #f8f9fa;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0;
     display: flex;
     align-items: center;
     gap: 1rem;
-    border: 1px solid #e9ecef;
+    border: none;
+    margin: 0;
+}
+
+/* Desktop Layout Container for Price Note and Filter */
+.info-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e3f2fd;
+    border-bottom: 1px solid #bbdefb;
+    padding: 0;
+    margin: 0;
 }
 
 .filter-label {
@@ -1271,19 +1270,32 @@ footer {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 768px) {
-    .destination-filter {
+/* Responsive styles - keep the mobile layout as is */
+@media screen and (max-width: 768px) {
+    .info-filter-container {
         flex-direction: column;
-        align-items: flex-start;
+        background: none;
+        border: none;
     }
 
-    .toggle-container {
+    .price-note {
+        margin: 0;
+        padding: 8px 12px;
+        font-size: 13px;
+        border-radius: 0;
         width: 100%;
+        background: #e3f2fd;
+        border-bottom: 1px solid #bbdefb;
     }
 
-    .toggle-btn {
-        flex: 1;
-        text-align: center;
+    .destination-filter {
+        margin: 0;
+        padding: 10px 12px;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        background-color: #fff;
+        width: 100%;
     }
 }
 
