@@ -499,12 +499,7 @@ const app = createApp({
             this.signupError = '';
 
             // Perform validation
-            const errors = this.validateForm();
-
-            if (errors.length > 0) {
-                // Set the error message
-                this.signupError = errors.join('. ');
-
+            if (!this.validateForm()) {
                 // Force Vue to update the DOM
                 this.$forceUpdate();
 
