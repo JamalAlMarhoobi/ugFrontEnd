@@ -517,19 +517,22 @@ const app = createApp({
             // If validation passes, proceed with signup
             this.isLoading = true;
 
+            // Convert selectedCategories from Proxy to regular array
+            const categoriesArray = [...this.selectedCategories];
+
             // Prepare user data
             const userData = {
                 fullName: this.signupForm.fullName,
                 email: this.signupForm.email.toLowerCase(),
                 password: this.signupForm.password,
                 destinationCity: this.signupForm.destinationCity,
-                preferences: this.selectedCategories
+                preferences: categoriesArray
             };
 
             console.log('Sending registration request:', {
                 ...userData,
                 password: '[REDACTED]', // Don't log the actual password
-                preferences: userData.preferences
+                preferences: categoriesArray
             });
 
             // Send registration request to server
