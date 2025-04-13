@@ -751,10 +751,16 @@ const app = createApp({
                 try {
                     const data = await this.makeRequest(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
                     console.log('Fetched itinerary data:', data);
-                    this.itinerary = data.data;
-                    this.totalCost = this.calculateTotalCost();
+                    
+                    if (data.success && data.data) {
+                        this.itinerary = data.data.spots || [];
+                        this.totalCost = data.data.totalCost || 0;
+                    } else {
+                        this.itinerary = [];
+                        this.totalCost = 0;
+                    }
                 } catch (error) {
-                    if (error.message.includes('404')) {
+                    if (error.message.includes('404') || error.message.includes('Itinerary not found')) {
                         console.log('No existing itinerary found for user:', this.currentUserEmail);
                         this.itinerary = [];
                         this.totalCost = 0;
