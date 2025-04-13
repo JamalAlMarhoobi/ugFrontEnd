@@ -740,38 +740,57 @@ const app = createApp({
         async fetchItinerary() {
             try {
                 console.log('Fetching itinerary for user:', this.currentUserEmail);
-                
-                if (!this.currentUserEmail) {
-                    console.log('No user email found, setting empty itinerary');
+
+                const response = await fetch(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
+
+                if (response.status === 404) {
+                    console.log('No existing itinerary found');
                     this.itinerary = [];
-                    this.totalCost = 0;
                     return;
                 }
 
-                try {
-                    const data = await this.makeRequest(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
-                    console.log('Fetched itinerary data:', data);
-                    
-                    if (data.success && data.data) {
-                        this.itinerary = data.data.spots || [];
-                        this.totalCost = data.data.totalCost || 0;
-                    } else {
-                        this.itinerary = [];
-                        this.totalCost = 0;
-                    }
-                } catch (error) {
-                    if (error.message.includes('404') || error.message.includes('Itinerary not found')) {
-                        console.log('No existing itinerary found for user:', this.currentUserEmail);
-                        this.itinerary = [];
-                        this.totalCost = 0;
-                    } else {
-                        throw error;
-                    }
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Failed to fetch itinerary');
                 }
+
+                const data = await response.json();
+                console.log('Fetched itinerary data:', data);
+
+                if (!data.success || !data.data || !data.data.spots) {
+                    console.log('No spots found in itinerary');
+                    this.itinerary = [];
+                    return;
+                }
+
+                // Fetch all spots to get full details
+                const spotsResponse = await fetch(`${this.apiBaseUrl}/spots`);
+                if (!spotsResponse.ok) {
+                    throw new Error('Failed to fetch spots');
+                }
+
+                const spotsData = await spotsResponse.json();
+                const allSpots = spotsData.data || [];
+                console.log('Fetched all spots:', allSpots);
+
+                // Merge itinerary data with full spot details
+                this.itinerary = data.data.spots.map(itinerarySpot => {
+                    const fullSpot = allSpots.find(spot => spot.spotId === itinerarySpot.spotId);
+                    if (!fullSpot) {
+                        console.warn('Spot not found:', itinerarySpot.spotId);
+                        return null;
+                    }
+                    return {
+                        ...fullSpot,
+                        date: itinerarySpot.date,
+                        status: itinerarySpot.status
+                    };
+                }).filter(spot => spot !== null);
+
+                console.log('Merged itinerary:', this.itinerary);
             } catch (error) {
                 console.error('Error fetching itinerary:', error);
                 this.itinerary = [];
-                this.totalCost = 0;
             }
         },
 
