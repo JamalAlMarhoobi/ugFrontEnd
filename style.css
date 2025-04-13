@@ -1,345 +1,507 @@
 /* Reset all default browser styles */
 * {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
 }
 
 /* Base styles for the entire document */
 body {
-    font-family: Arial, sans-serif; /* Set default font family */
-    line-height: 1.6; /* Set line height for better readability */
-    background-color: #f4f4f4; /* Set light gray background color */
-    min-height: 100vh; /* Ensure body takes up at least full viewport height */
+    font-family: Arial, sans-serif;
+    /* Set default font family */
+    line-height: 1.6;
+    /* Set line height for better readability */
+    background-color: #f4f4f4;
+    /* Set light gray background color */
+    min-height: 100vh;
+    /* Ensure body takes up at least full viewport height */
 }
 
 /* Container for the logo */
 .logo-container {
-    padding: 20px; /* Add padding around the logo */
-    text-align: center; /* Center the logo horizontally */
-    margin-bottom: 30px; /* Add space below the logo */
+    padding: 20px;
+    /* Add padding around the logo */
+    text-align: center;
+    /* Center the logo horizontally */
+    margin-bottom: 30px;
+    /* Add space below the logo */
 }
 
 /* Logo styling */
 .logo {
-    background: white; /* White background for the logo */
-    padding: 15px 30px; /* Add padding inside the logo */
-    display: inline-block; /* Allow padding and margin to work properly */
-    border-radius: 5px; /* Round the corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    background: white;
+    /* White background for the logo */
+    padding: 15px 30px;
+    /* Add padding inside the logo */
+    display: inline-block;
+    /* Allow padding and margin to work properly */
+    border-radius: 5px;
+    /* Round the corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
 /* Container for the signup form and categories */
 .signup-container {
-    max-width: 1200px; /* Limit maximum width */
-    margin: 0 auto; /* Center the container */
-    padding: 20px; /* Add padding inside the container */
-    display: flex; /* Use flexbox for layout */
-    gap: 40px; /* Add space between flex items */
+    max-width: 1200px;
+    /* Limit maximum width */
+    margin: 0 auto;
+    /* Center the container */
+    padding: 20px;
+    /* Add padding inside the container */
+    display: flex;
+    /* Use flexbox for layout */
+    gap: 40px;
+    /* Add space between flex items */
 }
 
 /* Styling for the form section */
 .form-section {
-    flex: 1; /* Allow form section to grow and take available space */
-    background: white; /* White background */
-    padding: 30px; /* Add padding inside the form section */
-    border-radius: 8px; /* Round the corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    flex: 1;
+    /* Allow form section to grow and take available space */
+    background: white;
+    /* White background */
+    padding: 30px;
+    /* Add padding inside the form section */
+    border-radius: 8px;
+    /* Round the corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
 /* Header section of the form */
 .form-header {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space items evenly */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 30px; /* Add space below the header */
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: space-between;
+    /* Space items evenly */
+    align-items: center;
+    /* Center items vertically */
+    margin-bottom: 30px;
+    /* Add space below the header */
 }
 
 /* Form header title */
 .form-header h2 {
-    font-size: 24px; /* Set font size */
-    color: #333; /* Set text color */
+    font-size: 24px;
+    /* Set font size */
+    color: #333;
+    /* Set text color */
 }
 
 /* Link to preferences section */
 .preferences-link {
-    color: #007bff; /* Set link color to blue */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Set font size */
+    color: #007bff;
+    /* Set link color to blue */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 16px;
+    /* Set font size */
 }
 
 /* Container for form input groups */
 .form-group {
-    margin-bottom: 20px; /* Add space between form groups */
+    margin-bottom: 20px;
+    /* Add space between form groups */
 }
 
 /* Label styling for form inputs */
 .form-group label {
-    display: block; /* Make label take full width */
-    margin-bottom: 8px; /* Add space below label */
-    color: #333; /* Set text color */
-    font-weight: 500; /* Set font weight */
+    display: block;
+    /* Make label take full width */
+    margin-bottom: 8px;
+    /* Add space below label */
+    color: #333;
+    /* Set text color */
+    font-weight: 500;
+    /* Set font weight */
 }
 
 /* Input field styling */
 .form-group input {
-    width: 100%; /* Make input take full width */
-    padding: 12px; /* Add padding inside input */
-    border: 1px solid #ddd; /* Add light gray border */
-    border-radius: 4px; /* Round the corners */
-    font-size: 16px; /* Set font size */
+    width: 100%;
+    /* Make input take full width */
+    padding: 12px;
+    /* Add padding inside input */
+    border: 1px solid #ddd;
+    /* Add light gray border */
+    border-radius: 4px;
+    /* Round the corners */
+    font-size: 16px;
+    /* Set font size */
 }
 
 /* Input field focus state */
 .form-group input:focus {
-    border-color: #007bff; /* Change border color on focus */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1); /* Add subtle glow effect */
+    border-color: #007bff;
+    /* Change border color on focus */
+    outline: none;
+    /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+    /* Add subtle glow effect */
 }
 
 /* Container for categories selection */
 .categories-section {
-    flex: 1; /* Allow categories section to grow and take available space */
-    background: white; /* White background */
-    padding: 30px; /* Add padding inside the section */
-    border-radius: 8px; /* Round the corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    flex: 1;
+    /* Allow categories section to grow and take available space */
+    background: white;
+    /* White background */
+    padding: 30px;
+    /* Add padding inside the section */
+    border-radius: 8px;
+    /* Round the corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
 /* Grid layout for categories */
 .categories-grid {
-    display: grid; /* Use CSS Grid for layout */
-    grid-template-columns: repeat(2, 1fr); /* Create two equal columns */
-    gap: 15px; /* Add space between grid items */
-    max-height: 400px; /* Limit maximum height */
-    overflow-y: auto; /* Add vertical scroll if content overflows */
-    padding-right: 10px; /* Add padding on the right for scrollbar */
+    display: grid;
+    /* Use CSS Grid for layout */
+    grid-template-columns: repeat(2, 1fr);
+    /* Create two equal columns */
+    gap: 15px;
+    /* Add space between grid items */
+    max-height: 400px;
+    /* Limit maximum height */
+    overflow-y: auto;
+    /* Add vertical scroll if content overflows */
+    padding-right: 10px;
+    /* Add padding on the right for scrollbar */
 }
 
 /* Individual category item styling */
 .category-item {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    gap: 10px; /* Add space between items */
-    padding: 8px; /* Add padding inside the item */
-    background: #f8f9fa; /* Light gray background */
-    border-radius: 4px; /* Round the corners */
-    cursor: pointer; /* Show pointer cursor on hover */
-    transition: background-color 0.2s; /* Smooth background color transition */
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center items vertically */
+    gap: 10px;
+    /* Add space between items */
+    padding: 8px;
+    /* Add padding inside the item */
+    background: #f8f9fa;
+    /* Light gray background */
+    border-radius: 4px;
+    /* Round the corners */
+    cursor: pointer;
+    /* Show pointer cursor on hover */
+    transition: background-color 0.2s;
+    /* Smooth background color transition */
 }
 
 /* Category item hover state */
 .category-item:hover {
-    background: #e9ecef; /* Change background color on hover */
+    background: #e9ecef;
+    /* Change background color on hover */
 }
 
 /* Checkbox styling within category items */
 .category-item input[type="checkbox"] {
-    width: 18px; /* Set checkbox width */
-    height: 18px; /* Set checkbox height */
-    cursor: pointer; /* Show pointer cursor */
+    width: 18px;
+    /* Set checkbox width */
+    height: 18px;
+    /* Set checkbox height */
+    cursor: pointer;
+    /* Show pointer cursor */
 }
 
 /* Label styling within category items */
 .category-item label {
-    font-size: 14px; /* Set font size */
-    color: #333; /* Set text color */
-    cursor: pointer; /* Show pointer cursor */
+    font-size: 14px;
+    /* Set font size */
+    color: #333;
+    /* Set text color */
+    cursor: pointer;
+    /* Show pointer cursor */
 }
 
 /* Container for buttons */
 .button-container {
-    text-align: center; /* Center buttons horizontally */
-    margin-top: 30px; /* Add space above the buttons */
+    text-align: center;
+    /* Center buttons horizontally */
+    margin-top: 30px;
+    /* Add space above the buttons */
 }
 
 /* Create account button styling */
 .create-account-btn {
-    background: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 12px 30px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    font-size: 16px; /* Set font size */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
+    background: #007bff;
+    /* Blue background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    padding: 12px 30px;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round the corners */
+    font-size: 16px;
+    /* Set font size */
+    cursor: pointer;
+    /* Show pointer cursor */
+    transition: background-color 0.2s;
+    /* Smooth background color transition */
 }
 
 /* Create account button hover state */
 .create-account-btn:hover {
-    background: #0056b3; /* Darker blue on hover */
+    background: #0056b3;
+    /* Darker blue on hover */
 }
 
 /* Login link styling */
 .login-link {
-    display: block; /* Make link take full width */
-    text-align: center; /* Center text */
-    margin-top: 20px; /* Add space above the link */
-    color: #007bff; /* Blue text color */
-    text-decoration: none; /* Remove underline */
-    font-size: 14px; /* Set font size */
+    display: block;
+    /* Make link take full width */
+    text-align: center;
+    /* Center text */
+    margin-top: 20px;
+    /* Add space above the link */
+    color: #007bff;
+    /* Blue text color */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 14px;
+    /* Set font size */
 }
 
 /* Login link hover state */
 .login-link:hover {
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: underline;
+    /* Add underline on hover */
 }
 
 /* Loading spinner animation */
 .loading-spinner {
-    width: 40px; /* Set spinner width */
-    height: 40px; /* Set spinner height */
-    border: 4px solid #f3f3f3; /* Light gray border */
-    border-top: 4px solid #007bff; /* Blue top border */
-    border-radius: 50%; /* Make it circular */
-    animation: spin 1s linear infinite; /* Apply spinning animation */
-    margin: 20px auto; /* Center the spinner */
+    width: 40px;
+    /* Set spinner width */
+    height: 40px;
+    /* Set spinner height */
+    border: 4px solid #f3f3f3;
+    /* Light gray border */
+    border-top: 4px solid #007bff;
+    /* Blue top border */
+    border-radius: 50%;
+    /* Make it circular */
+    animation: spin 1s linear infinite;
+    /* Apply spinning animation */
+    margin: 20px auto;
+    /* Center the spinner */
 }
 
 /* Spinning animation keyframes */
 @keyframes spin {
     0% {
-        transform: rotate(0deg); /* Start at 0 degrees */
+        transform: rotate(0deg);
+        /* Start at 0 degrees */
     }
 
     100% {
-        transform: rotate(360deg); /* End at 360 degrees */
+        transform: rotate(360deg);
+        /* End at 360 degrees */
     }
 }
 
 /* Custom scrollbar styling for categories grid */
 .categories-grid::-webkit-scrollbar {
-    width: 8px; /* Set scrollbar width */
+    width: 8px;
+    /* Set scrollbar width */
 }
 
 /* Scrollbar track styling */
 .categories-grid::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Light gray track */
-    border-radius: 4px; /* Round the corners */
+    background: #f1f1f1;
+    /* Light gray track */
+    border-radius: 4px;
+    /* Round the corners */
 }
 
 /* Scrollbar thumb styling */
 .categories-grid::-webkit-scrollbar-thumb {
-    background: #888; /* Gray thumb */
-    border-radius: 4px; /* Round the corners */
+    background: #888;
+    /* Gray thumb */
+    border-radius: 4px;
+    /* Round the corners */
 }
 
 /* Scrollbar thumb hover state */
 .categories-grid::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker gray on hover */
+    background: #555;
+    /* Darker gray on hover */
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .signup-container {
-        flex-direction: column; /* Stack items vertically on small screens */
+        flex-direction: column;
+        /* Stack items vertically on small screens */
     }
 
     .categories-grid {
-        max-height: 300px; /* Reduce maximum height on small screens */
+        max-height: 300px;
+        /* Reduce maximum height on small screens */
     }
 }
 
 /* Authentication container styling */
 .auth-container {
-    max-width: 400px; /* Limit maximum width */
-    margin: 100px auto; /* Center vertically and horizontally */
-    padding: 20px; /* Add padding */
-    background: white; /* White background */
-    border-radius: 8px; /* Round the corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    max-width: 400px;
+    /* Limit maximum width */
+    margin: 100px auto;
+    /* Center vertically and horizontally */
+    padding: 20px;
+    /* Add padding */
+    background: white;
+    /* White background */
+    border-radius: 8px;
+    /* Round the corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
 /* Authentication tabs container */
 .auth-tabs {
-    display: flex; /* Use flexbox for layout */
-    margin-bottom: 20px; /* Add space below tabs */
-    border-bottom: 2px solid #eee; /* Add bottom border */
+    display: flex;
+    /* Use flexbox for layout */
+    margin-bottom: 20px;
+    /* Add space below tabs */
+    border-bottom: 2px solid #eee;
+    /* Add bottom border */
 }
 
 /* Individual authentication tab */
 .auth-tab {
-    flex: 1; /* Allow tabs to grow and take equal space */
-    padding: 10px; /* Add padding */
-    text-align: center; /* Center text */
-    cursor: pointer; /* Show pointer cursor */
-    border: none; /* Remove border */
-    background: none; /* Remove background */
-    font-size: 16px; /* Set font size */
-    color: #666; /* Set text color */
+    flex: 1;
+    /* Allow tabs to grow and take equal space */
+    padding: 10px;
+    /* Add padding */
+    text-align: center;
+    /* Center text */
+    cursor: pointer;
+    /* Show pointer cursor */
+    border: none;
+    /* Remove border */
+    background: none;
+    /* Remove background */
+    font-size: 16px;
+    /* Set font size */
+    color: #666;
+    /* Set text color */
 }
 
 /* Active authentication tab */
 .auth-tab.active {
-    color: #007bff; /* Blue text color for active tab */
+    color: #007bff;
+    /* Blue text color for active tab */
 }
 
 /* Authentication button styling */
 .auth-button {
-    background: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 12px 30px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    font-size: 16px; /* Set font size */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
-    width: 100%; /* Take full width */
-    margin-top: 20px; /* Add space above button */
+    background: #007bff;
+    /* Blue background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    padding: 12px 30px;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round the corners */
+    font-size: 16px;
+    /* Set font size */
+    cursor: pointer;
+    /* Show pointer cursor */
+    transition: background-color 0.2s;
+    /* Smooth background color transition */
+    width: 100%;
+    /* Take full width */
+    margin-top: 20px;
+    /* Add space above button */
 }
 
 /* Authentication button hover state */
 .auth-button:hover {
-    background: #0056b3; /* Darker blue on hover */
+    background: #0056b3;
+    /* Darker blue on hover */
 }
 
 /* Error message styling */
 .error-message {
-    color: #dc3545; /* Red text color */
-    background-color: #f8d7da; /* Light red background */
-    border: 1px solid #f5c6cb; /* Red border */
-    padding: 10px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    margin-bottom: 15px; /* Add space below message */
-    text-align: center; /* Center text */
+    color: #dc3545;
+    /* Red text color */
+    background-color: #f8d7da;
+    /* Light red background */
+    border: 1px solid #f5c6cb;
+    /* Red border */
+    padding: 10px;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round the corners */
+    margin-bottom: 15px;
+    /* Add space below message */
+    text-align: center;
+    /* Center text */
 }
 
 /* Header styling */
 header {
-    background: white; /* White background */
-    padding: 15px 30px; /* Add padding */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space items evenly */
-    align-items: center; /* Center items vertically */
+    background: white;
+    /* White background */
+    padding: 15px 30px;
+    /* Add padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: space-between;
+    /* Space items evenly */
+    align-items: center;
+    /* Center items vertically */
 }
 
 /* Logo styling in header */
 .logo {
-    font-size: 24px; /* Set font size */
-    font-weight: bold; /* Make text bold */
-    color: #333; /* Set text color */
-    text-decoration: none; /* Remove underline */
+    font-size: 24px;
+    /* Set font size */
+    font-weight: bold;
+    /* Make text bold */
+    color: #333;
+    /* Set text color */
+    text-decoration: none;
+    /* Remove underline */
 }
 
 /* Navigation links container */
 .nav-links {
-    display: flex; /* Use flexbox for layout */
-    gap: 20px; /* Add space between links */
+    display: flex;
+    /* Use flexbox for layout */
+    gap: 20px;
+    /* Add space between links */
 }
 
 /* Individual navigation link */
 .nav-links a {
-    color: #666; /* Gray text color */
-    text-decoration: none; /* Remove underline */
-    padding: 5px 10px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    transition: color 0.2s; /* Smooth color transition */
+    color: #666;
+    /* Gray text color */
+    text-decoration: none;
+    /* Remove underline */
+    padding: 5px 10px;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round the corners */
+    transition: color 0.2s;
+    /* Smooth color transition */
 }
 
 /* Navigation link hover state */
 .nav-links a:hover {
-    color: #007bff; /* Blue text on hover */
+    color: #007bff;
+    /* Blue text on hover */
 }
 
 /* Right section of header */
@@ -351,10 +513,14 @@ header {
 
 /* Search container styling */
 .search-container {
-    position: relative; /* For positioning search button */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    gap: 10px; /* Add space between items */
+    position: relative;
+    /* For positioning search button */
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center items vertically */
+    gap: 10px;
+    /* Add space between items */
 }
 
 /* Search input styling */
@@ -363,90 +529,139 @@ header {
     border-radius: 4px;
     border: none;
     min-width: 200px;
-    background-color: #f5f5f5; /* Light grey background */
+    background-color: #f5f5f5;
+    /* Light grey background */
 }
 
 /* Search input focus state */
 .search-input:focus {
-    outline: none; /* Remove default outline */
-    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+    /* Remove default outline */
+    border-color: #007bff;
+    /* Blue border on focus */
 }
 
 /* Search button styling */
 .search-button {
-    background: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 8px 15px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
+    background: #007bff;
+    /* Blue background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    padding: 8px 15px;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round the corners */
+    cursor: pointer;
+    /* Show pointer cursor */
+    transition: background-color 0.2s;
+    /* Smooth background color transition */
 }
 
 /* My Itinerary button styling */
 .my-itinerary-btn {
-    background: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 8px 15px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    gap: 5px; /* Add space between icon and text */
-    position: relative; /* For positioning count badge */
+    background: #007bff;
+    /* Blue background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    padding: 8px 15px;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round the corners */
+    cursor: pointer;
+    /* Show pointer cursor */
+    transition: background-color 0.2s;
+    /* Smooth background color transition */
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center items vertically */
+    gap: 5px;
+    /* Add space between icon and text */
+    position: relative;
+    /* For positioning count badge */
 }
 
 /* My Itinerary button hover state */
 .my-itinerary-btn:hover {
-    background: #0056b3; /* Darker blue on hover */
+    background: #0056b3;
+    /* Darker blue on hover */
 }
 
 /* Itinerary count badge */
 .itinerary-count {
-    position: absolute; /* Position relative to button */
-    top: -8px; /* Move up */
-    right: -8px; /* Move right */
-    background: #dc3545; /* Red background */
-    color: white; /* White text */
-    width: 20px; /* Set width */
-    height: 20px; /* Set height */
-    border-radius: 50%; /* Make circular */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    font-size: 12px; /* Set font size */
-    font-weight: bold; /* Make text bold */
-    animation: popIn 0.3s ease; /* Add pop-in animation */
+    position: absolute;
+    /* Position relative to button */
+    top: -8px;
+    /* Move up */
+    right: -8px;
+    /* Move right */
+    background: #dc3545;
+    /* Red background */
+    color: white;
+    /* White text */
+    width: 20px;
+    /* Set width */
+    height: 20px;
+    /* Set height */
+    border-radius: 50%;
+    /* Make circular */
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    font-size: 12px;
+    /* Set font size */
+    font-weight: bold;
+    /* Make text bold */
+    animation: popIn 0.3s ease;
+    /* Add pop-in animation */
 }
 
 /* Pop-in animation for count badge */
 @keyframes popIn {
     0% {
-        transform: scale(0); /* Start scaled down */
-        opacity: 0; /* Start transparent */
+        transform: scale(0);
+        /* Start scaled down */
+        opacity: 0;
+        /* Start transparent */
     }
+
     100% {
-        transform: scale(1); /* End at full size */
-        opacity: 1; /* End fully visible */
+        transform: scale(1);
+        /* End at full size */
+        opacity: 1;
+        /* End fully visible */
     }
 }
 
 /* Logout button styling */
 .logout-btn {
-    background: #dc3545; /* Red background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 8px 15px; /* Add padding */
-    border-radius: 4px; /* Round the corners */
-    cursor: pointer; /* Show pointer cursor */
-    transition: background-color 0.2s; /* Smooth background color transition */
+    background: #dc3545;
+    /* Red background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    padding: 8px 15px;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round the corners */
+    cursor: pointer;
+    /* Show pointer cursor */
+    transition: background-color 0.2s;
+    /* Smooth background color transition */
 }
 
 /* Logout button hover state */
 .logout-btn:hover {
-    background: #c82333; /* Darker red on hover */
+    background: #c82333;
+    /* Darker red on hover */
 }
 
 /* Main Content */
@@ -500,280 +715,420 @@ main {
 
 /* Main content area */
 .experience-content {
-    padding: 1.5rem; /* Add padding inside content */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically */
-    gap: 1rem; /* Add space between items */
-    flex: 1; /* Allow content to grow */
+    padding: 1.5rem;
+    /* Add padding inside content */
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Stack items vertically */
+    gap: 1rem;
+    /* Add space between items */
+    flex: 1;
+    /* Allow content to grow */
 }
 
 /* Experience title */
 .experience-content h2 {
-    font-size: 1.2rem; /* Set font size */
-    color: #333; /* Dark gray text */
-    margin: 0; /* Remove margin */
-    line-height: 1.4; /* Set line height for readability */
+    font-size: 1.2rem;
+    /* Set font size */
+    color: #333;
+    /* Dark gray text */
+    margin: 0;
+    /* Remove margin */
+    line-height: 1.4;
+    /* Set line height for readability */
 }
 
 /* Categories container */
 .experience-categories {
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow tags to wrap */
-    gap: 0.5rem; /* Add space between tags */
+    display: flex;
+    /* Use flexbox for layout */
+    flex-wrap: wrap;
+    /* Allow tags to wrap */
+    gap: 0.5rem;
+    /* Add space between tags */
 }
 
 /* Individual category tag */
 .category-tag {
-    background: #e3f2fd; /* Light blue background */
-    color: #1976d2; /* Blue text */
-    padding: 0.25rem 0.75rem; /* Add padding */
-    border-radius: 1rem; /* Round the corners */
-    font-size: 0.8rem; /* Set font size */
-    font-weight: 500; /* Set font weight */
+    background: #e3f2fd;
+    /* Light blue background */
+    color: #1976d2;
+    /* Blue text */
+    padding: 0.25rem 0.75rem;
+    /* Add padding */
+    border-radius: 1rem;
+    /* Round the corners */
+    font-size: 0.8rem;
+    /* Set font size */
+    font-weight: 500;
+    /* Set font weight */
 }
 
 /* Experience description */
 .experience-description {
-    margin: 15px 0; /* Add vertical margin */
-    color: #666; /* Gray text */
-    line-height: 1.6; /* Set line height for readability */
-    display: -webkit-box; /* Enable line clamping */
-    -webkit-line-clamp: 3; /* Limit to 3 lines */
-    line-clamp: 3; /* Standard line clamp */
-    -webkit-box-orient: vertical; /* Set text direction */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Show ellipsis for overflow */
+    margin: 15px 0;
+    /* Add vertical margin */
+    color: #666;
+    /* Gray text */
+    line-height: 1.6;
+    /* Set line height for readability */
+    display: -webkit-box;
+    /* Enable line clamping */
+    -webkit-line-clamp: 3;
+    /* Limit to 3 lines */
+    line-clamp: 3;
+    /* Standard line clamp */
+    -webkit-box-orient: vertical;
+    /* Set text direction */
+    overflow: hidden;
+    /* Hide overflow */
+    text-overflow: ellipsis;
+    /* Show ellipsis for overflow */
 }
 
 /* Details container */
 .experience-details {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically */
-    gap: 0.75rem; /* Add space between items */
-    margin-top: auto; /* Push to bottom of container */
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Stack items vertically */
+    gap: 0.75rem;
+    /* Add space between items */
+    margin-top: auto;
+    /* Push to bottom of container */
 }
 
 /* Individual detail item */
 .detail-item {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    gap: 0.5rem; /* Add space between icon and text */
-    color: #555; /* Gray text */
-    font-size: 0.9rem; /* Set font size */
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center items vertically */
+    gap: 0.5rem;
+    /* Add space between icon and text */
+    color: #555;
+    /* Gray text */
+    font-size: 0.9rem;
+    /* Set font size */
 }
 
 /* Icon in detail item */
 .detail-item i {
-    color: #17a2b8; /* Teal color for icons */
-    width: 1rem; /* Set icon width */
+    color: #17a2b8;
+    /* Teal color for icons */
+    width: 1rem;
+    /* Set icon width */
 }
 
 /* Map and website links */
 .map-link,
 .website-link {
-    color: #17a2b8; /* Teal color for links */
-    text-decoration: none; /* Remove underline */
-    font-size: 0.9rem; /* Set font size */
-    margin-left: 0.5rem; /* Add space on left */
+    color: #17a2b8;
+    /* Teal color for links */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 0.9rem;
+    /* Set font size */
+    margin-left: 0.5rem;
+    /* Add space on left */
 }
 
 /* Link hover states */
 .map-link:hover,
 .website-link:hover {
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: underline;
+    /* Add underline on hover */
 }
 
 /* Add to itinerary button */
 .add-to-itinerary-btn {
-    width: 100%; /* Take full width */
-    padding: 12px; /* Add padding */
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Round corners */
-    cursor: pointer; /* Show pointer cursor */
-    font-size: 16px; /* Set font size */
-    font-weight: 600; /* Make text bold */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    gap: 8px; /* Add space between icon and text */
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-    margin-top: 16px; /* Add space above button */
+    width: 100%;
+    /* Take full width */
+    padding: 12px;
+    /* Add padding */
+    background-color: #4CAF50;
+    /* Green background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    border-radius: 4px;
+    /* Round corners */
+    cursor: pointer;
+    /* Show pointer cursor */
+    font-size: 16px;
+    /* Set font size */
+    font-weight: 600;
+    /* Make text bold */
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: center;
+    /* Center items horizontally */
+    gap: 8px;
+    /* Add space between icon and text */
+    transition: all 0.3s ease;
+    /* Smooth transition for all properties */
+    margin-top: 16px;
+    /* Add space above button */
 }
 
 /* Add to itinerary button hover state */
 .add-to-itinerary-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background-color: #45a049;
+    /* Darker green on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
 }
 
 /* Added state of itinerary button */
 .add-to-itinerary-btn.added {
-    background-color: #2196F3; /* Blue background when added */
+    background-color: #2196F3;
+    /* Blue background when added */
 }
 
 /* Added state hover */
 .add-to-itinerary-btn.added:hover {
-    background-color: #1976D2; /* Darker blue on hover */
+    background-color: #1976D2;
+    /* Darker blue on hover */
 }
 
 /* Button icon */
 .add-to-itinerary-btn i {
-    font-size: 14px; /* Set icon size */
+    font-size: 14px;
+    /* Set icon size */
 }
 
 /* Itinerary sidebar */
 .itinerary-section {
-    position: fixed; /* Fix position on screen */
-    top: 0; /* Align to top */
-    right: 0; /* Align to right */
-    height: 100vh; /* Full viewport height */
-    width: 300px; /* Set width */
-    background: white; /* White background */
-    padding: 2rem; /* Add padding */
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Add shadow on left side */
-    z-index: 1000; /* Ensure it's above other content */
+    position: fixed;
+    /* Fix position on screen */
+    top: 0;
+    /* Align to top */
+    right: 0;
+    /* Align to right */
+    height: 100vh;
+    /* Full viewport height */
+    width: 300px;
+    /* Set width */
+    background: white;
+    /* White background */
+    padding: 2rem;
+    /* Add padding */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    /* Add shadow on left side */
+    z-index: 1000;
+    /* Ensure it's above other content */
 }
 
 /* Itinerary section title */
 .itinerary-section h2 {
-    margin-bottom: 1rem; /* Add space below title */
+    margin-bottom: 1rem;
+    /* Add space below title */
 }
 
 /* Itinerary list */
 .itinerary-section ul {
-    list-style: none; /* Remove list bullets */
-    padding: 0; /* Remove padding */
+    list-style: none;
+    /* Remove list bullets */
+    padding: 0;
+    /* Remove padding */
 }
 
 /* Itinerary list item */
 .itinerary-section li {
-    padding: 0.8rem; /* Add padding */
-    border-bottom: 1px solid #eee; /* Add bottom border */
+    padding: 0.8rem;
+    /* Add padding */
+    border-bottom: 1px solid #eee;
+    /* Add bottom border */
 }
 
 /* Close itinerary button */
 .close-itinerary {
-    position: absolute; /* Position relative to section */
-    bottom: 2rem; /* Distance from bottom */
-    left: 2rem; /* Distance from left */
-    right: 2rem; /* Distance from right */
-    background: #dc3545; /* Red background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 0.8rem; /* Add padding */
-    border-radius: 4px; /* Round corners */
-    cursor: pointer; /* Show pointer cursor */
+    position: absolute;
+    /* Position relative to section */
+    bottom: 2rem;
+    /* Distance from bottom */
+    left: 2rem;
+    /* Distance from left */
+    right: 2rem;
+    /* Distance from right */
+    background: #dc3545;
+    /* Red background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    padding: 0.8rem;
+    /* Add padding */
+    border-radius: 4px;
+    /* Round corners */
+    cursor: pointer;
+    /* Show pointer cursor */
 }
 
 /* Footer styling */
 footer {
-    background-color: #232f3e; /* Dark blue background */
-    color: #fff; /* White text */
-    text-align: center; /* Center text */
-    padding: 1rem; /* Add padding */
-    margin-top: 2rem; /* Add space above footer */
+    background-color: #232f3e;
+    /* Dark blue background */
+    color: #fff;
+    /* White text */
+    text-align: center;
+    /* Center text */
+    padding: 1rem;
+    /* Add padding */
+    margin-top: 2rem;
+    /* Add space above footer */
 }
 
 /* Authentication page header */
 .auth-header {
-    background: #333; /* Dark background */
-    color: white; /* White text */
-    padding: 1rem; /* Add padding */
-    margin-bottom: 2rem; /* Add space below header */
+    background: #333;
+    /* Dark background */
+    color: white;
+    /* White text */
+    padding: 1rem;
+    /* Add padding */
+    margin-bottom: 2rem;
+    /* Add space below header */
 }
 
 /* Authentication header title */
 .auth-header h1 {
-    text-align: center; /* Center text */
-    font-size: 24px; /* Set font size */
+    text-align: center;
+    /* Center text */
+    font-size: 24px;
+    /* Set font size */
 }
 
 /* Authentication container */
 .auth-container {
-    max-width: 1200px; /* Limit maximum width */
-    margin: 0 auto; /* Center horizontally */
-    padding: 20px; /* Add padding */
+    max-width: 1200px;
+    /* Limit maximum width */
+    margin: 0 auto;
+    /* Center horizontally */
+    padding: 20px;
+    /* Add padding */
 }
 
 /* Form section styling */
 .form-section {
-    background: white; /* White background */
-    padding: 2rem; /* Add padding */
-    border-radius: 8px; /* Round corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-    margin-bottom: 2rem; /* Add space below section */
+    background: white;
+    /* White background */
+    padding: 2rem;
+    /* Add padding */
+    border-radius: 8px;
+    /* Round corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
+    margin-bottom: 2rem;
+    /* Add space below section */
 }
 
 /* Form header container */
 .form-header {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space items evenly */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 2rem; /* Add space below header */
-    padding-bottom: 1rem; /* Add padding at bottom */
-    border-bottom: 1px solid #eee; /* Add bottom border */
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: space-between;
+    /* Space items evenly */
+    align-items: center;
+    /* Center items vertically */
+    margin-bottom: 2rem;
+    /* Add space below header */
+    padding-bottom: 1rem;
+    /* Add padding at bottom */
+    border-bottom: 1px solid #eee;
+    /* Add bottom border */
 }
 
 /* Form header title */
 .form-header h2 {
-    font-size: 24px; /* Set font size */
-    color: #333; /* Dark gray text */
+    font-size: 24px;
+    /* Set font size */
+    color: #333;
+    /* Dark gray text */
 }
 
 /* Preferences link */
 .preferences-link {
-    color: #17a2b8; /* Teal color */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Set font size */
+    color: #17a2b8;
+    /* Teal color */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 16px;
+    /* Set font size */
 }
 
 /* Form group container */
 .form-group {
-    margin-bottom: 1.5rem; /* Add space below group */
+    margin-bottom: 1.5rem;
+    /* Add space below group */
 }
 
 /* Form label */
 .form-group label {
-    display: block; /* Take full width */
-    margin-bottom: 0.5rem; /* Add space below label */
-    color: #333; /* Dark gray text */
-    font-weight: 500; /* Set font weight */
+    display: block;
+    /* Take full width */
+    margin-bottom: 0.5rem;
+    /* Add space below label */
+    color: #333;
+    /* Dark gray text */
+    font-weight: 500;
+    /* Set font weight */
 }
 
 /* Form input */
 .form-group input {
-    width: 100%; /* Take full width */
-    padding: 0.8rem; /* Add padding */
-    border: 1px solid #ddd; /* Add light gray border */
-    border-radius: 4px; /* Round corners */
-    font-size: 16px; /* Set font size */
+    width: 100%;
+    /* Take full width */
+    padding: 0.8rem;
+    /* Add padding */
+    border: 1px solid #ddd;
+    /* Add light gray border */
+    border-radius: 4px;
+    /* Round corners */
+    font-size: 16px;
+    /* Set font size */
 }
 
 /* Form input focus state */
 .form-group input:focus {
-    border-color: #17a2b8; /* Teal border on focus */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.1); /* Add subtle glow */
+    border-color: #17a2b8;
+    /* Teal border on focus */
+    outline: none;
+    /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.1);
+    /* Add subtle glow */
 }
 
 /* Categories section */
 .categories-section {
-    background: white; /* White background */
-    padding: 2rem; /* Add padding */
-    border-radius: 8px; /* Round corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    background: white;
+    /* White background */
+    padding: 2rem;
+    /* Add padding */
+    border-radius: 8px;
+    /* Round corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
 /* Categories grid layout */
 .categories-grid {
-    display: grid; /* Use CSS Grid for layout */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
-    gap: 1rem; /* Add space between items */
-    max-height: 400px; /* Limit maximum height */
-    overflow-y: auto; /* Add vertical scroll */
-    padding-right: 1rem; /* Add padding for scrollbar */
+    display: grid;
+    /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Responsive columns */
+    gap: 1rem;
+    /* Add space between items */
+    max-height: 400px;
+    /* Limit maximum height */
+    overflow-y: auto;
+    /* Add vertical scroll */
+    padding-right: 1rem;
+    /* Add padding for scrollbar */
 }
 
 /* Buttons */
@@ -853,11 +1208,13 @@ footer {
     border-radius: 4px;
     border: none;
     min-width: 200px;
-    background-color: #f5f5f5; /* Light grey background */
+    background-color: #f5f5f5;
+    /* Light grey background */
 }
 
 .sort-container {
-    display: none; /* Hidden by default for mobile */
+    display: none;
+    /* Hidden by default for mobile */
 }
 
 /* Desktop styles */
@@ -1855,6 +2212,7 @@ footer {
 
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
+
     /* Header Layout */
     header {
         padding: 8px 12px;
@@ -1994,6 +2352,7 @@ footer {
 
 /* Prevent zoom on input focus for iOS */
 @media screen and (max-width: 768px) {
+
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -2008,6 +2367,7 @@ footer {
 
 /* Mobile Content Optimization */
 @media screen and (max-width: 768px) {
+
     /* Main Content Area */
     main {
         padding: 0;
@@ -2232,7 +2592,9 @@ footer {
 }
 
 /* Ensure proper box sizing */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2435,12 +2797,13 @@ footer {
 
 /* Ensure touch targets are large enough on mobile */
 @media (hover: none) and (pointer: coarse) {
+
     button,
     .nav-links a,
     .sort-dropdown,
     .toggle-btn,
     .search-button,
-    input[type="checkbox"] + label {
+    input[type="checkbox"]+label {
         min-height: 44px;
         min-width: 44px;
     }
@@ -2454,7 +2817,8 @@ footer {
 }
 
 /* High-resolution screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
     .experience-image {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
@@ -2479,6 +2843,7 @@ footer {
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
+
     .search-input,
     .sort-dropdown,
     .toggle-btn {

@@ -171,7 +171,8 @@
                                 <option value="reviewCount">Sort by Reviews</option>
                             </select>
                             <button @click="toggleSortOrder" class="sort-order-btn">
-                                <i :class="sortOrder === 'asc' ? 'fas fa-sort-amount-up' : 'fas fa-sort-amount-down'"></i>
+                                <i
+                                    :class="sortOrder === 'asc' ? 'fas fa-sort-amount-up' : 'fas fa-sort-amount-down'"></i>
                             </button>
                         </div>
                     </div>
@@ -234,10 +235,8 @@
                 <div v-else class="experience-section">
                     <div v-for="experience in filteredExperiences" :key="experience.spotId" class="experience-item">
                         <figure class="experience-image-wrapper">
-                            <img :src="getImageUrl(experience.image)" 
-                                 class="experience-image" 
-                                 :alt="experience.title"
-                                 @error="experience.image = getImageUrl(null)">
+                            <img :src="getImageUrl(experience.image)" class="experience-image" :alt="experience.title"
+                                @error="experience.image = getImageUrl(null)">
                         </figure>
                         <div class="experience-content">
                             <h2 v-text="experience.title"></h2>
@@ -423,9 +422,9 @@
                         <button class="submit-review" @click="submitReview">Submit Review</button>
                     </div>
                 </div>
-                </div>
             </div>
-            
+        </div>
+
         <!-- Reviews Modal -->
         <div v-if="showReviewsModal" class="reviews-modal">
             <div class="reviews-content">
@@ -462,7 +461,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 
