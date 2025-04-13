@@ -740,34 +740,30 @@ const app = createApp({
         async fetchItinerary() {
             try {
                 console.log('Fetching itinerary for user:', this.currentUserEmail);
-
-                const response = await fetch(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
-
-                if (response.status === 404) {
-                    console.log('No existing itinerary found for user:', this.currentUserEmail);
+                
+                if (!this.currentUserEmail) {
+                    console.log('No user email found, setting empty itinerary');
                     this.itinerary = [];
-                    this.showNotification('No itinerary found. Start adding spots to create one!', 'info');
+                    this.totalCost = 0;
                     return;
                 }
 
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.message || 'Failed to fetch itinerary');
-                }
-
-                const data = await response.json();
-                console.log('Fetched itinerary data:', data);
-
-                if (data.success && data.data) {
-                    this.itinerary = data.data.spots || [];
-                    this.totalCost = data.data.totalCost || 0;
-                } else {
-                    this.itinerary = [];
-                    this.totalCost = 0;
+                try {
+                    const data = await this.makeRequest(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
+                    console.log('Fetched itinerary data:', data);
+                    this.itinerary = data.data;
+                    this.totalCost = this.calculateTotalCost();
+                } catch (error) {
+                    if (error.message.includes('404')) {
+                        console.log('No existing itinerary found for user:', this.currentUserEmail);
+                        this.itinerary = [];
+                        this.totalCost = 0;
+                    } else {
+                        throw error;
+                    }
                 }
             } catch (error) {
                 console.error('Error fetching itinerary:', error);
-                this.showNotification('Failed to fetch itinerary. Please try again later.', 'error');
                 this.itinerary = [];
                 this.totalCost = 0;
             }
