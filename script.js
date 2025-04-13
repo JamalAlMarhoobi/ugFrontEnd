@@ -744,8 +744,9 @@ const app = createApp({
                 const response = await fetch(`${this.apiBaseUrl}/itineraries/${this.currentUserEmail}`);
 
                 if (response.status === 404) {
-                    console.log('No existing itinerary found');
+                    console.log('No existing itinerary found for user:', this.currentUserEmail);
                     this.itinerary = [];
+                    this.showNotification('No itinerary found. Start adding spots to create one!', 'info');
                     return;
                 }
 
@@ -757,40 +758,18 @@ const app = createApp({
                 const data = await response.json();
                 console.log('Fetched itinerary data:', data);
 
-                if (!data.success || !data.data || !data.data.spots) {
-                    console.log('No spots found in itinerary');
+                if (data.success && data.data) {
+                    this.itinerary = data.data.spots || [];
+                    this.totalCost = data.data.totalCost || 0;
+                } else {
                     this.itinerary = [];
-                    return;
+                    this.totalCost = 0;
                 }
-
-                // Fetch all spots to get full details
-                const spotsResponse = await fetch(`${this.apiBaseUrl}/spots`);
-                if (!spotsResponse.ok) {
-                    throw new Error('Failed to fetch spots');
-                }
-
-                const spotsData = await spotsResponse.json();
-                const allSpots = spotsData.data || [];
-                console.log('Fetched all spots:', allSpots);
-
-                // Merge itinerary data with full spot details
-                this.itinerary = data.data.spots.map(itinerarySpot => {
-                    const fullSpot = allSpots.find(spot => spot.spotId === itinerarySpot.spotId);
-                    if (!fullSpot) {
-                        console.warn('Spot not found:', itinerarySpot.spotId);
-                        return null;
-                    }
-                    return {
-                        ...fullSpot,
-                        date: itinerarySpot.date,
-                        status: itinerarySpot.status
-                    };
-                }).filter(spot => spot !== null);
-
-                console.log('Merged itinerary:', this.itinerary);
             } catch (error) {
                 console.error('Error fetching itinerary:', error);
+                this.showNotification('Failed to fetch itinerary. Please try again later.', 'error');
                 this.itinerary = [];
+                this.totalCost = 0;
             }
         },
 
